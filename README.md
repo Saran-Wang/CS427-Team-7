@@ -9,7 +9,7 @@ The code for CS427 Android app.
 | ------------- | ------------- | ------------| ------------- | ------------- |
 |               |               |             |               |               |            
 |               |               |             |               |               |
-| Pauline Brunet              | 655167621              | paulinebrunet03            |               |               |
+| Pauline Brunet              | 655167621              | paulinebrunet03            | Developer             | python              |
 |               |               |             |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
