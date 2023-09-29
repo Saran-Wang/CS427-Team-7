@@ -10,7 +10,7 @@ The code for CS427 Android app.
 |               |               |             |               |               |            
 |               |               |             |               |               |
 | Pauline Brunet              | 655167621              | paulinebrunet03            | Developer             | python              |
-|               |               |             |               |               |
+|Sriram Mohan               |sriramr4               |sriramr4             |developer              |SQL Server            |
 |               |               |             |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
