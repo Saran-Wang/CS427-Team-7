@@ -29,19 +29,19 @@ Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUV
 </br>
 Meeting time: 09/29/30 4pm - 5pm CST
 Members present: List the NetID of the people who attended the meeting
-pbrunet2,sriramr4,hmyu2,kona2,yinzhel3,nasht2
+pbrunet2,sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Everyone has successfully set up the Android Studio environment, determined the role of each team member, and finalized the schedule for our weekly meetings.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-| hmyu2          |                                 |                       |
-| pbrunet2       |                                 |                       |
-| sriramr4       |                                 |                       |
-| kona2          |                                 |                       |
-| yinzhel3       |                                 |                       |
-| nasht2         |                                 |                       |
-|                |                                 |                       |
+| hmyu2          |Set up the Android studio environment; decide to be the tech lead.                              | Attend the meeting the next week                      |
+| pbrunet2       | Set up the Android studio environment; decide to be a developer.                               | Attend the meeting the next week                        |
+| sriramr4       | Set up the Android studio environment; decide to be a developer.                                  | Attend the meeting the next week                        |
+| kona2          | Set up the Android studio environment; decide to be a developer.                                  | Attend the meeting the next week                        |
+| yinzhel3       | Set up the Android studio environment; decide to be a developer.                                  | Attend the meeting the next week                        |
+| nasht2         |Set up the Android studio environment; decide to be a developer.                                   | Attend the meeting the next week                        |
+| shiyuan8       |Set up the Android studio environment; decide to be the manager.                                   | Arrange the meeting the next week                        |
 |                |                                 |                       |
 </br>
 
