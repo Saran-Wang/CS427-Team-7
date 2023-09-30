@@ -13,7 +13,7 @@ The code for CS427 Android app.
 |Sriram Mohan               |sriramr4               |sriramr4             |Developer              |SQL Server            |
 |Chris YU               |hmyu2               |chrisyu-uiuc             |Tech-Lead               |Java, Android               |
 |Venkata Sai Ashrith Kona               |kona2               |Ashrith2             |Developer               |Python               |
-|               |               |             |               |               |
+|Yinzhe Luo          |yinzhel3          |131320219(yinzhel3@illinois.edu)          |Developer          |C++, C#, Python             |
 |               |               |             |               |               |
 <br/>
 
