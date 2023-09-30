@@ -28,8 +28,7 @@ Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUV
 <b>Week 1</b>
 </br>
 Meeting time: 09/29/30 4pm - 5pm CST
-Members present: List the NetID of the people who attended the meeting
-pbrunet2,sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8
+Members present: pbrunet2,sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8
 </br>
 Meeting notes: Everyone has successfully set up the Android Studio environment, determined the role of each team member, and finalized the schedule for our weekly meetings.
 </br>
