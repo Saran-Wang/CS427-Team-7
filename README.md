@@ -11,7 +11,7 @@ The code for CS427 Android app.
 |               |               |             |               |               |
 | Pauline Brunet              | 655167621              | paulinebrunet03            | Developer             | python              |
 |Sriram Mohan               |sriramr4               |sriramr4             |Developer              |SQL Server            |
-|Chris YU               |hmyu2@illinois.edu               |chrisyu-uiuc             |Tech-Lead               |Java, Android               |
+|Chris YU               |hmyu2               |chrisyu-uiuc             |Tech-Lead               |Java, Android               |
 |               |               |             |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
