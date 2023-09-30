@@ -30,15 +30,16 @@ Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUV
 </br>
 Meeting time: 09/29/30 4pm - 5pm CST
 Members present: List the NetID of the people who attended the meeting
+pbrunet2,sriramr4,hmyu2,kona2
 </br>
 Meeting notes: Explain the overall team progress and a summary of discussion
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+| hmyu2          |                                 |                       |
+| pbrunet2       |                                 |                       |
+| sriramr4       |                                 |                       |
+| kona2          |                                 |                       |
 |                |                                 |                       |
 |                |                                 |                       |
 |                |                                 |                       |
