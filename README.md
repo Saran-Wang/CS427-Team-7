@@ -1,5 +1,5 @@
 # Term-Project
-The code for CS427 Android app. 
+The code for CS427 Android app.
 <br/>
 <br/>
 
@@ -11,7 +11,7 @@ The code for CS427 Android app.
 |               |               |             |               |               |
 | Pauline Brunet              | 655167621              | paulinebrunet03            | Developer             | python              |
 |Sriram Mohan               |sriramr4               |sriramr4             |Developer              |SQL Server            |
-|               |               |             |               |               |
+|Chris YU               |hmyu2@illinois.edu               |chrisyu-uiuc             |Developer               |Java, Android               |
 |               |               |             |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
@@ -19,12 +19,12 @@ The code for CS427 Android app.
 
 
 <b>Weekly Progress Reports</b>
-</br> 
+</br>
 </br>
 Meeting time: Every Saturday from 4pm - 5pm CST
-</br> 
+</br>
 Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUVjMHowN2JzMEhMVGp3TTFpUT09
-</br> 
+</br>
 </br>
 <b>Week 1</b>
 </br>
