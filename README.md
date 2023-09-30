@@ -28,6 +28,7 @@ Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUV
 </br>
 <b>Week 1</b>
 </br>
+Meeting time: 09/29/30 4pm - 5pm CST
 Members present: List the NetID of the people who attended the meeting
 </br>
 Meeting notes: Explain the overall team progress and a summary of discussion
