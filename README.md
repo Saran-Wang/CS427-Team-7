@@ -7,11 +7,10 @@ The code for CS427 Android app.
 <br/>
 | Name          | NetID         | GitHub ID   | Role          | Experience    |
 | ------------- | ------------- | ------------| ------------- | ------------- |
-|               |               |             |               |               |            
-|               |               |             |               |               |
-| Pauline Brunet              | pbrunet2              | paulinebrunet03            | Developer             | python              |
-|Sriram Mohan               |sriramr4               |sriramr4             |Developer              |SQL Server            |
+| Shiyuan Wang              |   shiyuan8            |  Saran-Wang           |        Manager       |       Python, SQL, R, C++      |            
 |Chris YU               |hmyu2               |chrisyu-uiuc             |Tech-Lead               |Java, Android               |
+| Pauline Brunet              | pbrunet2              | paulinebrunet03            | Developer             | Python              |
+|Sriram Mohan               |sriramr4               |sriramr4             |Developer              |SQL Server            |
 |Venkata Sai Ashrith Kona               |kona2               |Ashrith2             |Developer               |Python               |
 |Yinzhe Luo          |yinzhel3          |131320219(yinzhel3@illinois.edu)          |Developer          |C++, C#, Python             |
 |               |               |             |               |               |
