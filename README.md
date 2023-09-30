@@ -13,7 +13,7 @@ The code for CS427 Android app.
 |Sriram Mohan               |sriramr4               |sriramr4             |Developer              |SQL Server            |
 |Venkata Sai Ashrith Kona               |kona2               |Ashrith2             |Developer               |Python               |
 |Yinzhe Luo          |yinzhel3          |131320219(yinzhel3@illinois.edu)          |Developer          |C++, C#, Python             |
-|               |               |             |               |               |
+|Ashley Turner               |nasht2               |xyzme2             |Developer               |C++, python, a little java               |
 <br/>
 
 
@@ -29,7 +29,7 @@ Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUV
 </br>
 Meeting time: 09/29/30 4pm - 5pm CST
 Members present: List the NetID of the people who attended the meeting
-pbrunet2,sriramr4,hmyu2,kona2,yinzhel3
+pbrunet2,sriramr4,hmyu2,kona2,yinzhel3,nasht2
 </br>
 Meeting notes: Explain the overall team progress and a summary of discussion
 </br>
@@ -40,7 +40,7 @@ Meeting notes: Explain the overall team progress and a summary of discussion
 | sriramr4       |                                 |                       |
 | kona2          |                                 |                       |
 | yinzhel3       |                                 |                       |
-|                |                                 |                       |
+| nasht2         |                                 |                       |
 |                |                                 |                       |
 |                |                                 |                       |
 </br>
