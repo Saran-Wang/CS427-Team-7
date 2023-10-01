@@ -14,6 +14,7 @@ The code for CS427 Android app.
 |Venkata Sai Ashrith Kona               |kona2               |Ashrith2             |Developer               |Python               |
 |Yinzhe Luo          |yinzhel3          |131320219(yinzhel3@illinois.edu)          |Developer          |C++, C#, Python             |
 |Ashley Turner               |nasht2               |xyzme2             |Developer               |C++, python, a little java               |
+|Bo Hu        |bo12         |persme1111    |Developer    |Python, JAVA, SQL, R        |
 <br/>
 
 
@@ -42,6 +43,7 @@ Meeting notes: Everyone has successfully set up the Android Studio environment, 
 | yinzhel3       | Set up the Android studio environment; decide to be a developer.                                  | Attend the meeting the next week                        |
 | nasht2         |Set up the Android studio environment; decide to be a developer.                                   | Attend the meeting the next week                        |
 | shiyuan8       |Set up the Android studio environment; decide to be the manager.                                   | Arrange the meeting the next week                        |
+| bo12           | Set up the Android studio environment; decide to be the developer.     | Attend the meeting the next week  |
 |                |                                 |                       |
 </br>
 
