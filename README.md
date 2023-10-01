@@ -14,7 +14,7 @@ The code for CS427 Android app.
 |Venkata Sai Ashrith Kona               |kona2               |Ashrith2             |Developer               |Python               |
 |Yinzhe Luo          |yinzhel3          |131320219(yinzhel3@illinois.edu)          |Developer          |C++, C#, Python             |
 |Ashley Turner               |nasht2               |xyzme2             |Developer               |C++, python, a little java               |
-|Bo Hu        |bo12         |persme1111    |Developer    |Python, JAVA, SQL, R        |
+|Bo Hu        |bo12         |persme1111    |Developer    |Python, Java, SQL, R        |
 <br/>
 
 
@@ -30,7 +30,7 @@ Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUV
 </br>
 Meeting time: 09/29/30 4pm - 5pm CST
 </br>
-Members present: pbrunet2,sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8
+Members present: pbrunet2,sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8,bo12
 </br>
 Meeting notes: Everyone has successfully set up the Android Studio environment, determined the role of each team member, and finalized the schedule for our weekly meetings.
 </br>
