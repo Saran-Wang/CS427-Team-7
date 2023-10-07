@@ -56,7 +56,7 @@ Meeting notes: Explain the overall team progress and a summary of discussion
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
+|hmyu2           |                                 |                       |
 |                |                                 |                       |
 |nasht2          |                                 |                       |
 |                |                                 |                       |
