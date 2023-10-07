@@ -50,22 +50,23 @@ Meeting notes: Everyone has successfully set up the Android Studio environment, 
 
 <b>Week 2</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 10/07/23 4pm - 5pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present: sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8,bo12
+</br>
+Meeting notes: Reviewed the main objective of Milestone 2, delegated specific tasks to each team member, and scheduled a meeting to discuss progress and collect intermediate results.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|hmyu2           |                                 |                       |
-|                |                                 |                       |
-|nasht2          |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|  hmyu2              |    Reviewed the main objective of Milestone 2                             |   Come up with two informal requirements and fully dressed use cases                    |
+| sriramr4               |  Reviewed the main objective of Milestone 2                               |    Come up with two informal requirements and fully dressed use cases                    |
+| kona2               |   Reviewed the main objective of Milestone 2                              |     Come up with two informal requirements and fully dressed use cases                   |
+|  yinzhel3              | Reviewed the main objective of Milestone 2                                |    Come up with two informal requirements and fully dressed use cases                    |
+|    nasht2            |  Reviewed the main objective of Milestone 2                               |    Come up with two informal requirements and fully dressed use cases                    |
+| shiyuan8               |  Reviewed the main objective of Milestone 2                               |   Come up with two informal requirements and fully dressed use cases                     |
+| bo12               |   Reviewed the main objective of Milestone 2                              |    Come up with two informal requirements and fully dressed use cases                    |
+|                |   Reviewed the main objective of Milestone 2                              |    Come up with two informal requirements and fully dressed use cases                    |
 </br>
-
 
 <b>Week 3</b>
 </br>
