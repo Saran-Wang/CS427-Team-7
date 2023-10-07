@@ -65,7 +65,7 @@ Meeting notes: Reviewed the main objective of Milestone 2, delegated specific ta
 |    nasht2            |  Reviewed the main objective of Milestone 2                               |    Come up with two informal requirements and fully dressed use cases                    |
 | shiyuan8               |  Reviewed the main objective of Milestone 2                               |   Come up with two informal requirements and fully dressed use cases                     |
 | bo12               |   Reviewed the main objective of Milestone 2                              |    Come up with two informal requirements and fully dressed use cases                    |
-|                |   Reviewed the main objective of Milestone 2                              |    Come up with two informal requirements and fully dressed use cases                    |
+|                |                                |                  |
 </br>
 
 <b>Week 3</b>
