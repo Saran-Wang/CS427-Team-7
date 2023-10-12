@@ -58,15 +58,37 @@ Meeting notes: Reviewed the main objective of Milestone 2, delegated specific ta
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|  hmyu2              |    Reviewed the main objective of Milestone 2                             |   Come up with two informal requirements and fully dressed use cases                    |
-| sriramr4               |  Reviewed the main objective of Milestone 2                               |    Come up with two informal requirements and fully dressed use cases                    |
-| kona2               |   Reviewed the main objective of Milestone 2                              |     Come up with two informal requirements and fully dressed use cases                   |
-|  yinzhel3              | Reviewed the main objective of Milestone 2                                |    Come up with two informal requirements and fully dressed use cases                    |
-|    nasht2            |  Reviewed the main objective of Milestone 2                               |    Come up with two informal requirements and fully dressed use cases                    |
-| shiyuan8               |  Reviewed the main objective of Milestone 2                               |   Come up with two informal requirements and fully dressed use cases                     |
-| bo12               |   Reviewed the main objective of Milestone 2                              |    Come up with two informal requirements and fully dressed use cases                    |
+|  hmyu2              |    Reviewed the main objective of Milestone 2    |   Come up with two informal requirements and fully dressed use cases                    |
+| sriramr4               |  Reviewed the main objective of Milestone 2   |    Come up with two informal requirements and fully dressed use cases                    |
+| kona2               |   Reviewed the main objective of Milestone 2     |     Come up with two informal requirements and fully dressed use cases                   |
+|  yinzhel3              | Reviewed the main objective of Milestone 2    |    Come up with two informal requirements and fully dressed use cases                    |
+|    nasht2            |  Reviewed the main objective of Milestone 2     |    Come up with two informal requirements and fully dressed use cases                    |
+| shiyuan8               |  Reviewed the main objective of Milestone 2   |   Come up with two informal requirements and fully dressed use cases                     |
+| bo12               |   Reviewed the main objective of Milestone 2     |    Come up with two informal requirements and fully dressed use cases                    |
 |                |                                |                  |
 </br>
+
+
+Meeting time: 10/11/23 7pm - 8pm CST
+</br>
+Members present: sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8,bo12,pbrunet2
+</br>
+Meeting notes: Summarized the informal requirements and use cases; delegated specific tasks to each team member, and scheduled a meeting to discuss progress and collect final results for milestone 2.
+</br>
+| NetID          | Progress from last week         | Tasks for next week   |
+| ---------------| --------------------------------| ----------------------|
+|  hmyu2              | Came up with 2 informal requirements, 2 fully dressed use cases, and a draft class diagram.    | Refine the class diagram            |
+|    shiyuan8           | Came up with 2 informal requirements and 2 fully dressed use cases                                |Format and integrate the informal requirements and use cases into a deliverable form             |
+| kona2               |  Came up with 2 informal requirements and 2 fully dressed use cases                              | Refine the class diagram              |
+|  yinzhel3              |  Came up with 2 informal requirements and 2 fully dressed use cases                         |  Refine the class diagram                  |
+|      pbrunet2          |Came up with 2 informal requirements and 2 fully dressed use cases                               |   Refine the class diagram                    |
+|  sriramr4              |Came up with 2 informal requirements and 2 fully dressed use cases                             | Refine the class diagram                 |
+| bo12               |  Came up with 2 informal requirements and 2 fully dressed use cases                       |  Refine the class diagram            |
+|   nasht2             |   Came up with 2 informal requirements and 2 fully dressed use cases                             | Refine the class diagram                 |
+
+</br>
+
+
 
 <b>Week 3</b>
 </br>
