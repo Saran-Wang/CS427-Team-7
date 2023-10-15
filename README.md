@@ -98,6 +98,7 @@ Members present: sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8,bo12,pbrunet2
 </br>
 Meeting notes: Finalize the deliverable of milestone 2
 </br>
+
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
 |   hmyu2             | Came up with a modified class diagram and a prototype component transition graph|  Attend the meeting the next week                    |
