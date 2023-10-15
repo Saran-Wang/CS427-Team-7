@@ -69,6 +69,9 @@ Meeting notes: Reviewed the main objective of Milestone 2, delegated specific ta
 </br>
 
 
+
+<b>Week 3</b>
+</br>
 Meeting time: 10/11/23 7pm - 8pm CST
 </br>
 Members present: sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8,bo12,pbrunet2
@@ -86,26 +89,25 @@ Meeting notes: Summarized the informal requirements and use cases; delegated spe
 | bo12               |  Came up with 2 informal requirements and 2 fully dressed use cases                       |  Refine the class diagram            |
 |   nasht2             |   Came up with 2 informal requirements and 2 fully dressed use cases                             | Refine the class diagram                 |
 
-</br>
 
 
-
-<b>Week 3</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 10/14/23 4pm - 5pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present: sriramr4,hmyu2,kona2,yinzhel3,nasht2,shiyuan8,bo12,pbrunet2
+</br>
+Meeting notes: Finalize the deliverable of milestone 2
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|   hmyu2             | Came up with a modified class diagram and a prototype component transition graph|  Attend the meeting the next week                    |
+|    bo12            |Came up with a modified class diagram and a prototype component transition graph            |   Attend the meeting the next week                    |
+|     yinzhel3           |    Came up with a modified class diagram and helped refine component transition graph|   Attend the meeting the next week                    |
+|      sriramr4          |    Helped refine and modify the class diagram and component transition graph                         |   Attend the meeting the next week                    |
+|      nasht2          |    Helped refine and modify the class diagram and component transition graph                             |   Attend the meeting the next week                    |
+|       kona2         |       Had a discussion on refining the class diagram and component transition graph                        |   Attend the meeting the next week                    |
+|     shiyuan8           |     Added details to subflows; formatted the final deliverable; had discussion on refining graphs                        |   Attend the meeting the next week                    |
+|     pbrunet2           |       Had a discussion on refining the class diagram and component transition graph                         |   Attend the meeting the next week                    |
 </br>
 
 
