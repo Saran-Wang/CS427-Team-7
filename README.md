@@ -107,7 +107,7 @@ Meeting notes: Finalize the deliverable of milestone 2
 |      sriramr4          |    Helped refine and modify the class diagram and component transition graph                         |   Attend the meeting the next week                    |
 |      nasht2          |    Helped refine and modify the class diagram and component transition graph                             |   Attend the meeting the next week                    |
 |       kona2         |       Had a discussion on refining the class diagram and component transition graph                        |   Attend the meeting the next week                    |
-|     shiyuan8           |     Added details to subflows; formatted the final deliverable; had discussion on refining graphs                        |   Attend the meeting the next week                    |
+|     shiyuan8           |     Added details to subflows; had a discussion on refining graphs; formatted the final deliverable                     |   Attend the meeting the next week                    |
 |     pbrunet2           |       Had a discussion on refining the class diagram and component transition graph                         |   Attend the meeting the next week                    |
 </br>
 
