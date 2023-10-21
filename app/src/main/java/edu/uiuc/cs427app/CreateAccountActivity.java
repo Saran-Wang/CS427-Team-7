@@ -84,7 +84,13 @@ public class CreateAccountActivity extends BaseActivity {
                         //2 - password is not fulfilling the requirement
                         AlertHelper.displayDialog(CreateAccountActivity.this, "Password should have at least 6 characters");
                     } else if(validate_result == 3) {
-                        //3 - confirm_password does not match with password
+                        //3 - password is not fulfilling the requirement
+                        AlertHelper.displayDialog(CreateAccountActivity.this, "Password should contain at least one uppercase letter");
+                    } else if(validate_result == 4) {
+                        //4 - password is not fulfilling the requirement
+                        AlertHelper.displayDialog(CreateAccountActivity.this, "Password should contain at least one special character");
+                    } else if(validate_result == 5) {
+                        //5 - confirm_password does not match with password
                         AlertHelper.displayDialog(CreateAccountActivity.this, "Password doesn't match with the confirmation");
                     }
                 }
@@ -101,9 +107,20 @@ public class CreateAccountActivity extends BaseActivity {
             // 2 - password is not fulfilling the requirement
             return 2;
         }
-        if (!password.equals(confirm_password)) {
-            // 3 - confirm_password does not match with password
+
+        if (!password.matches(".*[A-Z].*")) {
+            // 3 - password should contain at least one uppercase letter
             return 3;
+        }
+
+        if (!password.matches(".*[!@#$%^&*()].*")) {
+            // 4 - password should contain at least one special character
+            return 4;
+        }
+
+        if (!password.equals(confirm_password)) {
+            // 5 - confirm_password does not match with password
+            return 5;
         }
         // 0 - rules are validated
         return 0;
