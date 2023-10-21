@@ -20,7 +20,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     Spinner sp_theme_selector;
     RadioGroup rg_temperature_standard;
 
-    TextView tv_create;
+    Button btn_create;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         et_password = findViewById(R.id.password);
         et_confirm_password = findViewById(R.id.confirm_password);
         sp_theme_selector = findViewById(R.id.theme_spinner);
-        tv_create = findViewById(R.id.create);
+        btn_create = findViewById(R.id.create);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
 
         //init sp_theme_selector
@@ -40,7 +40,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         sp_theme_selector.setAdapter(adapter);
 
 
-        tv_create.setOnClickListener(new View.OnClickListener() {
+        btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = et_username.getText().toString();

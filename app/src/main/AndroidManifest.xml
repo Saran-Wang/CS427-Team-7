@@ -19,6 +19,7 @@
 
         <activity android:name=".DetailsActivity" android:exported="true"></activity>
         <activity android:name=".AddCityActivity" android:exported="true" android:parentActivityName=".MainActivity">></activity>
+        <activity android:name=".SettingActivity" android:exported="true" android:parentActivityName=".MainActivity">></activity>
 
         <activity android:name=".LoginActivity" android:exported="true">
             <intent-filter>
