@@ -26,7 +26,7 @@ import edu.uiuc.cs427app.Database.Entity.SavedCity;
 import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
-public class AddCityActivity extends AppCompatActivity {
+public class AddCityActivity extends BaseActivity {
     EditText et_user_input;
     RecyclerView rv_city_list;
     Button btn_add;

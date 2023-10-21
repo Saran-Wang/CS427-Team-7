@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends BaseActivity {
     RadioGroup rg_temperature_standard;
     Spinner sp_theme_selector;
     Button btn_edit;

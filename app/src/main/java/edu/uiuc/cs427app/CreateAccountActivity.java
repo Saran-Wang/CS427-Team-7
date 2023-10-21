@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import edu.uiuc.cs427app.Helper.AlertHelper;
 
-public class CreateAccountActivity extends AppCompatActivity {
+public class CreateAccountActivity extends BaseActivity {
     EditText et_username, et_password, et_confirm_password;
     Spinner sp_theme_selector;
     RadioGroup rg_temperature_standard;

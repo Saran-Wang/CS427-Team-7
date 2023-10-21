@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends BaseActivity  {
 
     ImageView iv_setting, iv_logout;
     TextView greeting;
@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity  {
         btn_buttonAddLocation = findViewById(R.id.buttonAddLocation);
         rv_city_list = findViewById(R.id.city_list);
         rv_city_list.setLayoutManager(new LinearLayoutManager(this));
-
-        this.setTitle(getString(R.string.app_name) + "-" + SharedPrefUtils.getStringData(this,"username"));
         //greeting.setText(greeting.getText().toString().replace("{username}",SharedPrefUtils.getStringData(this,"username")));
 
         iv_setting.setOnClickListener(new View.OnClickListener() {

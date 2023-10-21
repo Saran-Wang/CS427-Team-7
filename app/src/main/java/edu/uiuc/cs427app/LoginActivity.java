@@ -15,7 +15,7 @@ import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 import edu.uiuc.cs427app.Helper.ThemeHelper;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     EditText et_username, et_password;
     TextView tv_create;
     Button btn_login;
