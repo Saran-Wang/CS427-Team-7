@@ -66,11 +66,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public boolean isUsernameExistInDB(String username) {
-        //TODO
-        return false;
+        return AppDatabase.getAppDatabase(this).userDao().findByName(username) != null;
     }
     public User validateCredential(String username, String password) {
-        //TODO
-        return null;
+        return AppDatabase.getAppDatabase(this).userDao().findByNameAndPassword(username, password) ;
     }
 }
