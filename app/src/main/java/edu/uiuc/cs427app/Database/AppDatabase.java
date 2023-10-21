@@ -55,6 +55,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 if(size == 0){
                     try {
                         AssetManager manager = ((Activity) context).getAssets();
+                        //https://simplemaps.com/data/world-cities
                         InputStream in = manager.open("worldcities.csv");
                         
                         ArrayList<City> cooked = parse(in);
