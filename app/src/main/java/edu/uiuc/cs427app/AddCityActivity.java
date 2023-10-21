@@ -1,6 +1,7 @@
 package edu.uiuc.cs427app;
 
 import android.annotation.SuppressLint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
@@ -37,6 +39,7 @@ public class AddCityActivity extends AppCompatActivity {
         rv_city_list.setLayoutManager(new LinearLayoutManager(AddCityActivity.this));
         rv_city_list.setAdapter(new CustomAdapter());
 
+        //for filtering the city list by et_user_input changes
         et_user_input.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -54,6 +57,7 @@ public class AddCityActivity extends AppCompatActivity {
             }
         });
 
+        //adding foreign relationship to SavedCity (User id and City Id)
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +67,8 @@ public class AddCityActivity extends AppCompatActivity {
     }
 
     public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-        List<City> localDataSet;
+        List<City> localDataSet = new ArrayList<>();
+
         public  class ViewHolder extends RecyclerView.ViewHolder {
             private final TextView textView;
             public ViewHolder(View view) {
@@ -75,9 +80,14 @@ public class AddCityActivity extends AppCompatActivity {
                 return textView;
             }
         }
-
         public CustomAdapter() {
-            localDataSet = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().getAll();
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    localDataSet = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().getAll();
+                    CustomAdapter.this.notifyDataSetChanged();
+                }
+            });
         }
 
 
@@ -91,7 +101,6 @@ public class AddCityActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
             viewHolder.getTextView().setText(localDataSet.get(position).getCityName().toString());
-            //viewHolder.getAddressTextView().setText(localDataSet.get(position).getSecondaryText(null).toString());
         }
 
         @Override
