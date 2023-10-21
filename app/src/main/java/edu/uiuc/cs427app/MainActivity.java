@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity  {
         btn_buttonAddLocation = findViewById(R.id.buttonAddLocation);
         rv_city_list = findViewById(R.id.city_list);
         rv_city_list.setLayoutManager(new LinearLayoutManager(this));
-        greeting.setText(greeting.getText().toString().replace("{username}",SharedPrefUtils.getStringData(this,"username")));
+
+        this.setTitle(getString(R.string.app_name) + "-" + SharedPrefUtils.getStringData(this,"username"));
+        //greeting.setText(greeting.getText().toString().replace("{username}",SharedPrefUtils.getStringData(this,"username")));
 
         iv_setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +63,9 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 //Logout
                 //Reset application data and Direct from MainActivity to SettingActivity
+                MainActivity.this.setTitle(getString(R.string.app_name) + "-" + SharedPrefUtils.getStringData(MainActivity.this,"username"));
                 SharedPrefUtils.saveData(MainActivity.this, "userid", -1);
+                SharedPrefUtils.saveData(MainActivity.this, "username", "");
                 ThemeHelper.changeTheme("Light");
                 MainActivity.this.startActivity(new Intent(MainActivity.this,LoginActivity.class));
             }

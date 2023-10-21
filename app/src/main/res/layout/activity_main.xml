@@ -49,10 +49,11 @@
         </LinearLayout>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/greeting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hi! {username}" />
+            android:text="" />
 
         <TextView
             android:id="@+id/textView5"
