@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Database;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
+import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.AlertHelper;
 
 public class CreateAccountActivity extends BaseActivity {
@@ -124,7 +125,7 @@ public class CreateAccountActivity extends BaseActivity {
 
     public boolean insertUserIntoDB(String username, String password, String theme, String temperature_standard){
         try {
-            //TODO
+            AppDatabase.getAppDatabase(this).userDao().insertAll(new  User(username, password, theme, temperature_standard));
             return true;
         } catch (Exception e){
             e.printStackTrace();
