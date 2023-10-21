@@ -1,14 +1,25 @@
 package edu.uiuc.cs427app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+import edu.uiuc.cs427app.Database.AppDatabase;
+import edu.uiuc.cs427app.Database.Entity.City;
 
 public class AddCityActivity extends AppCompatActivity {
     EditText et_user_input;
@@ -22,6 +33,9 @@ public class AddCityActivity extends AppCompatActivity {
         et_user_input = findViewById(R.id.user_input);
         rv_city_list = findViewById(R.id.city_list);
         btn_add = findViewById(R.id.add);
+
+        rv_city_list.setLayoutManager(new LinearLayoutManager(AddCityActivity.this));
+        rv_city_list.setAdapter(new CustomAdapter());
 
         et_user_input.addTextChangedListener(new TextWatcher() {
             @Override
@@ -47,4 +61,43 @@ public class AddCityActivity extends AppCompatActivity {
             }
         });
     }
+
+    public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+        List<City> localDataSet;
+        public  class ViewHolder extends RecyclerView.ViewHolder {
+            private final TextView textView;
+            public ViewHolder(View view) {
+                super(view);
+                textView = (TextView) view.findViewById(R.id.textView);
+            }
+
+            public TextView getTextView() {
+                return textView;
+            }
+        }
+
+        public CustomAdapter() {
+            localDataSet = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().getAll();
+        }
+
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(AddCityActivity.this).inflate(R.layout.recycler_view_addcity_row, null, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
+            viewHolder.getTextView().setText(localDataSet.get(position).getCityName().toString());
+            //viewHolder.getAddressTextView().setText(localDataSet.get(position).getSecondaryText(null).toString());
+        }
+
+        @Override
+        public int getItemCount() {
+            return localDataSet.size();
+        }
+    }
+
 }

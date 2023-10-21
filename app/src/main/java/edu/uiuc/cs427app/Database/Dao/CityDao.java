@@ -11,8 +11,6 @@ import edu.uiuc.cs427app.Database.Entity.City;
 @Dao
 public interface CityDao {
 
-    @Dao
-    public interface LocationDao {
         @Query("SELECT * FROM city")
         List<City> getAll();
 
@@ -21,6 +19,6 @@ public interface CityDao {
 
         @Insert
         void insertAll(City... cities);
-    }
+
 
 }

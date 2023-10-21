@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.AlertHelper;
+import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 import edu.uiuc.cs427app.Helper.ThemeHelper;
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,6 +41,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(loginUser != null) {
                         ThemeHelper.changeTheme(loginUser.getTheme());
+                        SharedPrefUtils.saveData(LoginActivity.this, "userid", loginUser.getId());
+                        SharedPrefUtils.saveData(LoginActivity.this, "username", loginUser.getUsername());
+
                         LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class));
                     } else {
                         //Wrong Password
@@ -61,14 +66,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public boolean isUsernameExistInDB(String username) {
-        //TODO
-        return true;
+        return AppDatabase.getAppDatabase(this).userDao().findByName(username) != null;
     }
 
 
     public User validateCredential(String username, String password) {
-        //TODO
-        return new User("abc", "abc", "Light","F");
-        //return null;
+        return AppDatabase.getAppDatabase(this).userDao().findByNameAndPassword(username, password) ;
     }
 }
