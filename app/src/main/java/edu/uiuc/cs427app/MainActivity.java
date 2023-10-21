@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity  {
         btn_buttonAddLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
+                MainActivity.this.startActivity(new Intent(MainActivity.this, AddCityActivity.class));
             }
         });
     }
