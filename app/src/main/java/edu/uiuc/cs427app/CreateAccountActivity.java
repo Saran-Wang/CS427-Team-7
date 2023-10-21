@@ -1,5 +1,6 @@
 package edu.uiuc.cs427app;
 
+import android.content.Entity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Database;
 
 import edu.uiuc.cs427app.Helper.AlertHelper;
 
@@ -96,13 +98,43 @@ public class CreateAccountActivity extends BaseActivity {
         //2 - password is not fulfilling the requirement
         //3 - confirm_password does not match with password
 
+        if (username.length() < 6) {
+            // 1 - username is not fulfilling the requirement
+            return 1;
+        }
+
+        if (password.length() < 6) {
+            // 2 - password is not fulfilling the requirement
+            return 2;
+        }
+
+        if (!password.equals(confirm_password)) {
+            // 3 - confirm_password does not match with password
+            return 3;
+        }
+
+        // 0 - rules are validated
         return 0;
+
     }
+
 
     public boolean isUsernameExistInDB(String username) {
         //TODO
-        return false;
+
+//        UserDao userDao = Database.Entity.User.getInstance(getApplicationContext()).UserDao();
+//        User user = userDao.getUserByUsername(username);
+//
+//            // If a user with the same username exists, user will not be null
+//        if (user != null) {
+//            // Return true if the username already exists in the database
+//            return true;
+//
+//        };
+
+        return false; // Return false if the username doesn't exit
     }
+
 
     public boolean insertUserIntoDB(String username, String password, String theme, String temperature_standard){
         try {
