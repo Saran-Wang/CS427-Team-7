@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import edu.uiuc.cs427app.Helper.ThemeHelper;
 import edu.uiuc.cs427app.databinding.ActivityMainBinding;
 
 import android.widget.Button;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity  {
         iv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ThemeHelper.changeTheme("Light");
                 MainActivity.this.startActivity(new Intent(MainActivity.this,LoginActivity.class));
             }
         });

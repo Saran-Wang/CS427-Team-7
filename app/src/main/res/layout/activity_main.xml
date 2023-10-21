@@ -24,7 +24,6 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="30dp"
-                android:textColor="@color/black"
                 android:text="CS427 Project App" />
 
             <View

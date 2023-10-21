@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.AlertHelper;
+import edu.uiuc.cs427app.Helper.ThemeHelper;
 
 public class LoginActivity extends AppCompatActivity {
     EditText et_username, et_password;
@@ -33,7 +35,10 @@ public class LoginActivity extends AppCompatActivity {
                 String password = et_password.getText().toString();
 
                 if(isUsernameExistInDB(username)){
-                    if(validateCredential(username, password)) {
+                    User loginUser = validateCredential(username, password);
+
+                    if(loginUser != null) {
+                        ThemeHelper.changeTheme(loginUser.getTheme());
                         LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class));
                     } else {
                         //Wrong Password
@@ -61,8 +66,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public boolean validateCredential(String username, String password) {
+    public User validateCredential(String username, String password) {
         //TODO
-        return true;
+        return new User("abc", "abc", "Light","F");
+        //return null;
     }
 }
