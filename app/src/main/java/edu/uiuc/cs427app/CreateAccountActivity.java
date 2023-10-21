@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Database;
 
+import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Helper.AlertHelper;
 
 public class CreateAccountActivity extends BaseActivity {
@@ -91,48 +92,33 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     public int validateRegistrationRules(String username, String password, String confirm_password, String theme){
-        //TODO
-
-        //0 - rules are validated
-        //1 - username is not fulfilling the requirement
-        //2 - password is not fulfilling the requirement
-        //3 - confirm_password does not match with password
-
         if (username.length() < 6) {
             // 1 - username is not fulfilling the requirement
             return 1;
         }
-
         if (password.length() < 6) {
             // 2 - password is not fulfilling the requirement
             return 2;
         }
-
         if (!password.equals(confirm_password)) {
             // 3 - confirm_password does not match with password
             return 3;
         }
-
         // 0 - rules are validated
         return 0;
-
     }
 
 
     public boolean isUsernameExistInDB(String username) {
-        //TODO
-
-//        UserDao userDao = Database.Entity.User.getInstance(getApplicationContext()).UserDao();
-//        User user = userDao.getUserByUsername(username);
-//
-//            // If a user with the same username exists, user will not be null
+        // If a user with the same username exists, user will not be null
+        // Return false if the username doesn't exit
+        // Return true if the username already exists in the database
+        return AppDatabase.getAppDatabase(this).userDao().findByName(username) != null;
+//        User user = AppDatabase.getAppDatabase(this).userDao().findByName(username);
 //        if (user != null) {
-//            // Return true if the username already exists in the database
 //            return true;
-//
 //        };
-
-        return false; // Return false if the username doesn't exit
+//        return false;
     }
 
 
