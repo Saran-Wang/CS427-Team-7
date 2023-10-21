@@ -21,16 +21,19 @@ import java.util.List;
 
 import edu.uiuc.cs427app.AddCityActivity;
 import edu.uiuc.cs427app.Database.Dao.CityDao;
+import edu.uiuc.cs427app.Database.Dao.SavedCityDao;
 import edu.uiuc.cs427app.Database.Dao.UserDao;
 import edu.uiuc.cs427app.Database.Entity.City;
+import edu.uiuc.cs427app.Database.Entity.SavedCity;
 import edu.uiuc.cs427app.Database.Entity.User;
 
-@Database(entities = {User.class, City.class}, version = 1)
+@Database(entities = {User.class, City.class, SavedCity.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase sInstance;
 
     public abstract UserDao userDao();
     public abstract CityDao cityDao();
+    public abstract SavedCityDao savedCityDao();
 
     public static AppDatabase getAppDatabase(Context context) {
         if (sInstance == null) {
@@ -49,27 +52,24 @@ public abstract class AppDatabase extends RoomDatabase {
             @Override
             public void run() {
                 int size = sInstance.cityDao().getAll().size();
-                if (size == 0) {
+                if(size == 0){
                     try {
                         AssetManager manager = ((Activity) context).getAssets();
                         InputStream in = manager.open("worldcities.csv");
-                                try {
-                                    ArrayList<City> cooked = parse(in);
-                                    for (City c : cooked) {
-                                        sInstance.cityDao().insertAll(c);
-                                    }
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
+                        
+                        ArrayList<City> cooked = parse(in);
+                        for (City c : cooked) {
+                            sInstance.cityDao().insertAll(c);
+                        }
+
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-
             }
         });
+
+
 
         return sInstance;
     }

@@ -7,6 +7,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import edu.uiuc.cs427app.Database.Entity.City;
 import edu.uiuc.cs427app.Database.Entity.SavedCity;
 import edu.uiuc.cs427app.Database.Entity.User;
 
@@ -19,11 +20,8 @@ public interface SavedCityDao {
     @Query("SELECT * FROM saved_city WHERE id IN (:savedCityIds)")
     List<SavedCity> loadAllByIds(int[] savedCityIds);
 
-    //@Query("SELECT * FROM user WHERE username LIKE :username " + " LIMIT 1")
-    //User findByName(String username);
-
-    //@Query("SELECT * FROM user WHERE username LIKE :username AND " + "password LIKE :password LIMIT 1")
-    //User findByNameAndPassword(String username, String password);
+    @Query("SELECT * FROM saved_city INNER JOIN city on saved_city.city_id = city.id WHERE user_id = :userId")
+    List<City> loadCityByUserId(int userId);
 
     @Insert
     void insertAll(SavedCity... savedCities);

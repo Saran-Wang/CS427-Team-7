@@ -22,6 +22,9 @@ import java.util.List;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.City;
+import edu.uiuc.cs427app.Database.Entity.SavedCity;
+import edu.uiuc.cs427app.Helper.AlertHelper;
+import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 public class AddCityActivity extends AppCompatActivity {
     EditText et_user_input;
@@ -61,7 +64,13 @@ public class AddCityActivity extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO
+                //City city = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().findByName("Tokyo");
+                //SavedCity savedCity = new SavedCity(SharedPrefUtils.getIntData(AddCityActivity.this, "userid"), city.getId());
+                //AppDatabase.getAppDatabase(AddCityActivity.this).savedCityDao().insertAll(savedCity);
 
+                //List<City> cities = AppDatabase.getAppDatabase(AddCityActivity.this).savedCityDao().loadCityByUserId(SharedPrefUtils.getIntData(AddCityActivity.this, "userid"));
+                //AlertHelper.displayDialog(AddCityActivity.this, cities.size() + " " +cities.get(0).getCityName());
             }
         });
     }
@@ -81,13 +90,7 @@ public class AddCityActivity extends AppCompatActivity {
             }
         }
         public CustomAdapter() {
-            AsyncTask.execute(new Runnable() {
-                @Override
-                public void run() {
-                    localDataSet = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().getAll();
-                    CustomAdapter.this.notifyDataSetChanged();
-                }
-            });
+            localDataSet = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().getAll();
         }
 
 

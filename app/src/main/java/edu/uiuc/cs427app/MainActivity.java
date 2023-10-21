@@ -11,6 +11,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import edu.uiuc.cs427app.Database.AppDatabase;
+import edu.uiuc.cs427app.Database.Entity.City;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 import edu.uiuc.cs427app.Helper.ThemeHelper;
 import edu.uiuc.cs427app.databinding.ActivityMainBinding;
@@ -19,12 +21,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity  {
 
     ImageView iv_setting, iv_logout;
     TextView greeting;
     Button btn_buttonAddLocation;
     RecyclerView rv_city_list;
+
+    public void onResume(){
+        super.onResume();
+        //TODO
+        //rv_city_list.setAdapter(new Adapter());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +46,7 @@ public class MainActivity extends AppCompatActivity  {
         btn_buttonAddLocation = findViewById(R.id.buttonAddLocation);
         rv_city_list = findViewById(R.id.city_list);
         rv_city_list.setLayoutManager(new LinearLayoutManager(this));
-
         greeting.setText(greeting.getText().toString().replace("{username}",SharedPrefUtils.getStringData(this,"username")));
-        //TODO
-        //rv_city_list.setAdapter(new Adapter());
 
         iv_setting.setOnClickListener(new View.OnClickListener() {
             @Override
