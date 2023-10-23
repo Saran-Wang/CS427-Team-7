@@ -18,6 +18,9 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE id IN (:userIds)")
     List<User> loadAllByIds(int[] userIds);
 
+    @Query("SELECT * FROM user WHERE id = :id " + " LIMIT 1")
+    User findById(int id);
+
     @Query("SELECT * FROM user WHERE username LIKE :username " + " LIMIT 1")
     User findByName(String username);
 
@@ -26,6 +29,7 @@ public interface UserDao {
 
     @Insert
     void insertAll(User... users);
+
 
     @Delete
     void delete(User user);
