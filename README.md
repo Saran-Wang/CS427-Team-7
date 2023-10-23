@@ -125,7 +125,7 @@ Meeting notes: Reviewed the main objective of Milestone 3, delegated specific ta
 |hmyu2                |    Reviewed the main objective of Milestone 3; added scaffolding components for  milestone 3        | Complete `LoginAcitivity`                      |
 |shiyuan8                |  Reviewed the main objective of Milestone 3                               |   Complete `CreateAccountActivity`                |
 |  pbrunet2              |  Reviewed the main objective of Milestone 3                               | Complete `AddCityActivity - filtering city by user input`                     |
-| sriramr4               |  Reviewed the main objective of Milestone 3                               | Complete `MainActivity - making a list of saved cities for each user'                     |
+| sriramr4               |  Reviewed the main objective of Milestone 3                               | Complete `MainActivity - making a list of saved cities for each user`                     |
 | bo12               |  Reviewed the main objective of Milestone 3                               |  Complete  `SettingActivity`                  |
 |  yinzhel3              |  Reviewed the main objective of Milestone 3                               |  Complete  `AddCityActivity -  add a new city`                 |
 |  kona2              |  Reviewed the main objective of Milestone 3                               | Complete    `MainActivity - delete a city for particular user`                  |
