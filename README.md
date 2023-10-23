@@ -114,19 +114,21 @@ Meeting notes: Finalize the deliverable of milestone 2
 
 <b>Week 4</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 10/21/23 4pm - 5pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present: sriramr4,hmyu2,kona2,yinzhel3,shiyuan8,bo12,pbrunet2
+</br>
+Meeting notes: Reviewed the main objective of Milestone 3, delegated specific tasks to each team member, and scheduled a meeting to discuss progress and collect intermediate results.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|hmyu2                |    Reviewed the main objective of Milestone 3; added scaffolding components for  milestone 3        | Complete `LoginAcitivity`                      |
+|shiyuan8                |  Reviewed the main objective of Milestone 3                               |   Complete `CreateAccountActivity`                |
+|  pbrunet2              |  Reviewed the main objective of Milestone 3                               | Complete `AddCityActivity - filtering city by user input`                     |
+| sriramr4               |  Reviewed the main objective of Milestone 3                               | Complete `MainActivity - making a list of saved cities for each user'                     |
+| bo12               |  Reviewed the main objective of Milestone 3                               |  Complete  `SettingActivity`                  |
+|  yinzhel3              |  Reviewed the main objective of Milestone 3                               |  Complete  `AddCityActivity -  add a new city`                 |
+|  kona2              |  Reviewed the main objective of Milestone 3                               | Complete    `MainActivity - delete a city for particular user`                  |
 |                |                                 |                       |
 </br>
 
