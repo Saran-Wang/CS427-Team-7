@@ -1,7 +1,6 @@
 package edu.uiuc.cs427app;
 
 import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,9 +20,6 @@ import java.util.List;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.City;
-import edu.uiuc.cs427app.Database.Entity.SavedCity;
-import edu.uiuc.cs427app.Helper.AlertHelper;
-import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 public class AddCityActivity extends BaseActivity {
     EditText et_user_input;
@@ -37,7 +32,7 @@ public class AddCityActivity extends BaseActivity {
         setContentView(R.layout.activity_add_city);
         et_user_input = findViewById(R.id.user_input);
         rv_city_list = findViewById(R.id.city_list);
-        btn_add = findViewById(R.id.add);
+        btn_add = findViewById(R.id.delete);
 
         rv_city_list.setLayoutManager(new LinearLayoutManager(AddCityActivity.this));
         rv_city_list.setAdapter(new CustomAdapter());
