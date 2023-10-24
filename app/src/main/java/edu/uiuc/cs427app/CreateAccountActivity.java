@@ -18,6 +18,7 @@ import androidx.room.Database;
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.AlertHelper;
+import edu.uiuc.cs427app.Helper.LoginHelper;
 
 public class CreateAccountActivity extends BaseActivity {
     EditText et_username, et_password, et_confirm_password;
@@ -65,6 +66,7 @@ public class CreateAccountActivity extends BaseActivity {
                         if(insertUserIntoDB(username, password, theme, temperature_standard)){
 
                             //insert success and redirect to MainActivity
+                            LoginHelper.configureApplicationSetting(CreateAccountActivity.this, username, password);
                             CreateAccountActivity.this.startActivity(new Intent(CreateAccountActivity.this, MainActivity.class));
 
                         } else {

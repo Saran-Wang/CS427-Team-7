@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.AlertHelper;
+import edu.uiuc.cs427app.Helper.LoginHelper;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 import edu.uiuc.cs427app.Helper.ThemeHelper;
 
@@ -40,10 +41,7 @@ public class LoginActivity extends BaseActivity {
                     User loginUser = validateCredential(username, password);
 
                     if(loginUser != null) {
-                        ThemeHelper.changeTheme(loginUser.getTheme());
-                        SharedPrefUtils.saveData(LoginActivity.this, "userid", loginUser.getId());
-                        SharedPrefUtils.saveData(LoginActivity.this, "username", loginUser.getUsername());
-
+                        LoginHelper.configureApplicationSetting(LoginActivity.this, loginUser);
                         LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class));
                     } else {
                         //Wrong Password
