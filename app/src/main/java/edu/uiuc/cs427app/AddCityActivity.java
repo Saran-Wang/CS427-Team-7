@@ -93,7 +93,7 @@ public class AddCityActivity extends BaseActivity {
             private final TextView textView;
             public ViewHolder(View view) {
                 super(view);
-                textView = (TextView) view.findViewById(R.id.textView);
+                textView = (TextView) view.findViewById(R.id.textView4);
             }
 
             public TextView getTextView() {

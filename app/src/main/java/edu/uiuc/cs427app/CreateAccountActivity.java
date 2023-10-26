@@ -10,9 +10,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.room.Database;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
@@ -22,7 +24,8 @@ import edu.uiuc.cs427app.Helper.LoginHelper;
 
 public class CreateAccountActivity extends BaseActivity {
     EditText et_username, et_password, et_confirm_password;
-    Spinner sp_theme_selector;
+
+    Switch sw_theme_selector;
     RadioGroup rg_temperature_standard;
 
     Button btn_create;
@@ -35,23 +38,29 @@ public class CreateAccountActivity extends BaseActivity {
         et_username = findViewById(R.id.username);
         et_password = findViewById(R.id.password);
         et_confirm_password = findViewById(R.id.confirm_password);
-        sp_theme_selector = findViewById(R.id.theme_spinner);
+        sw_theme_selector = findViewById(R.id.Mode);
         btn_create = findViewById(R.id.create);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
 
-        //init sp_theme_selector
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.theme_color, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_theme_selector.setAdapter(adapter);
+        sw_theme_selector.isChecked();
 
+        sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                // Switch is OFF
+                // Do something when the switch is in the "off" state.
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+            }
+        });
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = et_username.getText().toString();
                 String password = et_password.getText().toString();
                 String confirm_password = et_confirm_password.getText().toString();
-                String theme = sp_theme_selector.getSelectedItemPosition() == 0 ? "Light" : "Dark";
+                String theme = sw_theme_selector.isChecked() ? "Dark" : "Light";
                 String temperature_standard = ((RadioButton)findViewById(rg_temperature_standard.getCheckedRadioButtonId())).getText().toString();
 
                 int validate_result = validateRegistrationRules(username, password, confirm_password, theme);

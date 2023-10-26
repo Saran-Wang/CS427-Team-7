@@ -59,11 +59,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <Spinner
-            android:layout_margin="10dp"
-            android:id="@+id/theme_spinner"
+        <Switch
+            android:id="@+id/Mode"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="  Dark" />
 
         <RadioGroup
             android:orientation="horizontal"

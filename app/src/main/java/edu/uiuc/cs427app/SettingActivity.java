@@ -7,9 +7,11 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.User;
@@ -19,40 +21,69 @@ import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 public class SettingActivity extends BaseActivity {
     RadioGroup rg_temperature_standard;
     RadioButton fahrenheit, celsius;
-    Spinner sp_theme_selector;
+    // Spinner sp_theme_selector;
+    Switch sw_theme_selector;
     Button btn_edit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        sp_theme_selector = findViewById(R.id.theme_spinner);
+        // sp_theme_selector = findViewById(R.id.theme_spinner);
+        sw_theme_selector = findViewById(R.id.Mode);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
         fahrenheit = findViewById(R.id.fahrenheit);
         celsius = findViewById(R.id.celsius);
         btn_edit = findViewById(R.id.edit);
 
-        //init sp_theme_selector
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.theme_color, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_theme_selector.setAdapter(adapter);
+
 
         User user = getUser();
         if(user != null) {
             //TODO
             //init rg_temperature_standard, sp_theme_selector by user data
+
+            boolean theme_dark = user.getTheme().equals("Dark");
+            String tempUnit = user.getTemperature_format();
+            boolean f = tempUnit.equals("Fahrenheit");
+            boolean c = tempUnit.equals("Celsius");
+
+            sw_theme_selector.setChecked(theme_dark);
+
+            if(f){
+                rg_temperature_standard.check(fahrenheit.getId());
+            } else if (c) {
+                rg_temperature_standard.check(celsius.getId());
+            }
+
         }
+
+        sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                // Switch is OFF
+                // Do something when the switch is in the "off" state.
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+            }
+        });
 
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String theme = sp_theme_selector.getSelectedItemPosition() == 0 ? "Light" : "Dark";
+
+                String theme = sw_theme_selector.isChecked()? "Dark" : "Light";
                 String temperature_standard = ((RadioButton)findViewById(rg_temperature_standard.getCheckedRadioButtonId())).getText().toString();
 
                 //TODO
-                //UPDATE User in database
+                //UPDATE User's temperature unit and theme in database
+                updateTempUnit(temperature_standard);
+                updateTheme(theme);
 
+                // Change UI to user selection
                 LoginHelper.configureApplicationSetting(SettingActivity.this, getUser());
                 SettingActivity.this.onBackPressed();
             }
@@ -65,4 +96,13 @@ public class SettingActivity extends BaseActivity {
     public User getUser() {
         return AppDatabase.getAppDatabase(this).userDao().findById(getUserId());
     }
+
+    public void updateTheme(String theme){
+        AppDatabase.getAppDatabase(this).userDao().updateThemeByName(getUserId(), theme);
+    }
+
+    public void updateTempUnit(String tempUnit){
+        AppDatabase.getAppDatabase(this).userDao().updateTempUnitByName(getUserId(), tempUnit);
+    }
+
 }
