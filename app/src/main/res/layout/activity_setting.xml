@@ -7,30 +7,31 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TextView
-            android:layout_centerInParent="true"
-            android:id="@+id/logo"
-            android:text="WeatherApp"
-            android:textStyle="bold"
-            android:textSize="30dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        android:layout_height="185dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_centerHorizontal="true"
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="WeatherApp"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:layout_margin="20dp"
             android:text="Settings"
-            android:textStyle="bold"
             android:textSize="20dp"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout
@@ -40,18 +41,29 @@
         android:layout_weight="3">
 
 
-        <Spinner
-            android:layout_margin="10dp"
-            android:id="@+id/theme_spinner"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:autoText="true"
+            android:background="#4A47A3"
+            android:fadingEdge="horizontal|vertical"
+            android:gravity="center"
+            android:text="Temparature Unit"
+            android:textAlignment="gravity"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#84FFFF" />
 
         <RadioGroup
-            android:orientation="horizontal"
             android:id="@+id/temperature_standard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checkedButton="@+id/fahrenheit">
+            android:layout_gravity="center"
+            android:checkedButton="@+id/fahrenheit"
+            android:forceDarkAllowed="true"
+            android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/fahrenheit"
                 android:layout_width="wrap_content"
@@ -63,18 +75,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Celsius" />
+
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:autoText="true"
+            android:background="#4A47A3"
+            android:fadingEdge="horizontal|vertical"
+            android:gravity="center"
+            android:text="Mode"
+            android:textAlignment="gravity"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#84FFFF" />
+
+        <Spinner
+            android:id="@+id/theme_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/edit"
-            android:text="Edit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Done" />
 
     </LinearLayout>
 </LinearLayout>

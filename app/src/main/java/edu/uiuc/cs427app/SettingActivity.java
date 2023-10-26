@@ -42,6 +42,23 @@ public class SettingActivity extends BaseActivity {
         if(user != null) {
             //TODO
             //init rg_temperature_standard, sp_theme_selector by user data
+
+            // String tempUnit = SharedPrefUtils.getStringData(this,"temperature_format");
+            // String theme = SharedPrefUtils.getStringData(this,"theme");
+
+            int theme_selector_position = user.getTheme().equals("Dark") ? 1 : 0;
+            String tempUnit = user.getTemperature_format();
+            boolean f = tempUnit.equals("Fahrenheit");
+            boolean c = tempUnit.equals("Celsius");
+
+            sp_theme_selector.setSelection(theme_selector_position);
+
+            if(f){
+                rg_temperature_standard.check(fahrenheit.getId());
+            } else if (c) {
+                rg_temperature_standard.check(celsius.getId());
+            }
+
         }
 
         btn_edit.setOnClickListener(new View.OnClickListener() {
@@ -51,8 +68,11 @@ public class SettingActivity extends BaseActivity {
                 String temperature_standard = ((RadioButton)findViewById(rg_temperature_standard.getCheckedRadioButtonId())).getText().toString();
 
                 //TODO
-                //UPDATE User in database
+                //UPDATE User's temperature unit and theme in database
+                updateTempUnit(temperature_standard);
+                updateTheme(theme);
 
+                // Change UI to user selection
                 LoginHelper.configureApplicationSetting(SettingActivity.this, getUser());
                 SettingActivity.this.onBackPressed();
             }
@@ -65,4 +85,13 @@ public class SettingActivity extends BaseActivity {
     public User getUser() {
         return AppDatabase.getAppDatabase(this).userDao().findById(getUserId());
     }
+
+    public void updateTheme(String theme){
+        AppDatabase.getAppDatabase(this).userDao().updateThemeByName(getUserId(), theme);
+    }
+
+    public void updateTempUnit(String tempUnit){
+        AppDatabase.getAppDatabase(this).userDao().updateTempUnitByName(getUserId(), tempUnit);
+    }
+
 }
