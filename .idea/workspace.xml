@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd2524cf-ace9-47ad-aa51-90b0ded25985" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/edu/uiuc/cs427app/AddCityActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/edu/uiuc/cs427app/AddCityActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +83,7 @@
     &quot;memory.settings.postsync.last.time.stamp&quot;: &quot;1698203977848&quot;
   }
 }</component>
-  <component name="RunManager" selected="Android App.CS427App.app.androidTest">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="CS427App.app.androidTest" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="CS427App.app.androidTest" />
       <option name="DEPLOY" value="true" />
