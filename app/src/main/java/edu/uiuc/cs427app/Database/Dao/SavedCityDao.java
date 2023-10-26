@@ -23,6 +23,9 @@ public interface SavedCityDao {
     @Query("SELECT * FROM saved_city INNER JOIN city on saved_city.city_id = city.id WHERE user_id = :userId")
     List<City> loadCityByUserId(int userId);
 
+    @Query("SELECT * FROM saved_city INNER JOIN city on saved_city.city_id = :city_id WHERE user_id = :userId LIMIT 1")
+    SavedCity isCityExistByUserId(int userId, int city_id);
+
     @Insert
     void insertAll(SavedCity... savedCities);
 

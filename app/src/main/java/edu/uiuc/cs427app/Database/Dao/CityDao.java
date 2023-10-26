@@ -18,6 +18,9 @@ public interface CityDao {
         @Query("SELECT * FROM city WHERE cityName = :cityName " + " LIMIT 1")
         City findByName(String cityName);
 
+        @Query("SELECT * FROM city WHERE cityName LIKE '%' || :cityName || '%'")
+        List<City> filterByName(String cityName);
+
         @Insert
         void insertAll(City... cities);
 
