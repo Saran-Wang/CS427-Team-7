@@ -11,6 +11,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.User;
@@ -38,6 +39,7 @@ public class SettingActivity extends BaseActivity {
         btn_edit = findViewById(R.id.edit);
 
 
+
         User user = getUser();
         if(user != null) {
             //TODO
@@ -57,6 +59,17 @@ public class SettingActivity extends BaseActivity {
             }
 
         }
+
+        sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                // Switch is OFF
+                // Do something when the switch is in the "off" state.
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+            }
+        });
 
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
