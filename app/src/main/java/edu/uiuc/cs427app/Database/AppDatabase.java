@@ -43,11 +43,6 @@ public abstract class AppDatabase extends RoomDatabase {
                     .build();
         }
 
-        //TODO
-        if (sInstance.userDao().getAll() == null || sInstance.userDao().getAll().size() == 0) {
-            User user = new User("admin", "password", "Dark", "Celsius");
-            sInstance.userDao().insertAll(user);
-        }
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
