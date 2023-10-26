@@ -144,12 +144,12 @@ Meeting notes: Made sure that each team member was on track and reminded each of
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
 |hmyu2                |  Completed `LoginAcitivity`; Provided overall guidelines to each team member for developing all features.                               |  Add documentation for `LoginAcitivity`     |
-| shiyuan8               |  Completed `CreateAccountActivity`                                | |Add documentation for  `CreateAccountActivity`                       |
+| shiyuan8               |  Completed `CreateAccountActivity`                                |Add documentation for  `CreateAccountActivity`  |                      
 |bo12                |  Completed `SettingActivity`                               |Add documentation for   `SettingActivity`                   |
 | pbrunet2               |  Complete `AddCityActivity - filtering city by user input`                               |Add documentation for `AddCityActivity - filtering city by user input`                       |
 |yinzhel3                |  Continued working on `AddCityActivity -  add a new city`                               | Add documentation for  `AddCityActivity -  add a new city`                    |
 | sriramr4               | Continued working on  `MainActivity - making a list of saved cities for each user`                              | Add documentation for   `MainActivity - making a list of saved cities for each user`                   |
-| kona2               |  Continued working on `MainActivity - delete a city for particular user`                               | Add documentation for  `MainActivity - delete a city for particular user`                     |
+| kona2               |  Continued working on `MainActivity - delete a city for particular user`                               | Add documentation for  `MainActivity - delete a city for particular user` |
 | nasht2               | Caught up with the overall progress                                | Film the video for the milestone deliverable                      |
 </br>
 
