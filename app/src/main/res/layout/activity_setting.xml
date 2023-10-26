@@ -92,11 +92,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#84FFFF" />
 
-        <Spinner
-            android:id="@+id/theme_spinner"
+        <Switch
+            android:id="@+id/Mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:text=" Dark" />
 
         <LinearLayout
             android:layout_width="wrap_content"

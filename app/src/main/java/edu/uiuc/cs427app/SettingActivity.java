@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,39 +20,35 @@ import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 public class SettingActivity extends BaseActivity {
     RadioGroup rg_temperature_standard;
     RadioButton fahrenheit, celsius;
-    Spinner sp_theme_selector;
+    // Spinner sp_theme_selector;
+    Switch sw_theme_selector;
     Button btn_edit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        sp_theme_selector = findViewById(R.id.theme_spinner);
+        // sp_theme_selector = findViewById(R.id.theme_spinner);
+        sw_theme_selector = findViewById(R.id.Mode);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
         fahrenheit = findViewById(R.id.fahrenheit);
         celsius = findViewById(R.id.celsius);
         btn_edit = findViewById(R.id.edit);
 
-        //init sp_theme_selector
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.theme_color, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_theme_selector.setAdapter(adapter);
 
         User user = getUser();
         if(user != null) {
             //TODO
             //init rg_temperature_standard, sp_theme_selector by user data
 
-            // String tempUnit = SharedPrefUtils.getStringData(this,"temperature_format");
-            // String theme = SharedPrefUtils.getStringData(this,"theme");
-
-            int theme_selector_position = user.getTheme().equals("Dark") ? 1 : 0;
+            boolean theme_dark = user.getTheme().equals("Dark");
             String tempUnit = user.getTemperature_format();
             boolean f = tempUnit.equals("Fahrenheit");
             boolean c = tempUnit.equals("Celsius");
 
-            sp_theme_selector.setSelection(theme_selector_position);
+            sw_theme_selector.setChecked(theme_dark);
 
             if(f){
                 rg_temperature_standard.check(fahrenheit.getId());
@@ -64,7 +61,8 @@ public class SettingActivity extends BaseActivity {
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String theme = sp_theme_selector.getSelectedItemPosition() == 0 ? "Light" : "Dark";
+
+                String theme = sw_theme_selector.isChecked()? "Dark" : "Light";
                 String temperature_standard = ((RadioButton)findViewById(rg_temperature_standard.getCheckedRadioButtonId())).getText().toString();
 
                 //TODO
