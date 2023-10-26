@@ -129,7 +129,7 @@ Meeting notes: Reviewed the main objective of Milestone 3, delegated specific ta
 | bo12               |  Reviewed the main objective of Milestone 3                               |  Complete  `SettingActivity`                  |
 |  yinzhel3              |  Reviewed the main objective of Milestone 3                               |  Complete  `AddCityActivity -  add a new city`                 |
 |  kona2              |  Reviewed the main objective of Milestone 3                               | Complete    `MainActivity - delete a city for particular user`                  |
-| nasht2               | Caught up with the overall progress                                | Film the video for the milestone deliverable                      |
+
 </br>
 
 
@@ -150,7 +150,7 @@ Meeting notes: Made sure that each team member was on track and reminded each of
 |yinzhel3                |  Continued working on `AddCityActivity -  add a new city`                               | Add documentation for  `AddCityActivity -  add a new city`                    |
 | sriramr4               | Continued working on  `MainActivity - making a list of saved cities for each user`                              | Add documentation for   `MainActivity - making a list of saved cities for each user`                   |
 | kona2               |  Continued working on `MainActivity - delete a city for particular user`                               | Add documentation for  `MainActivity - delete a city for particular user`                     |
-|                |                                 |                       |
+| nasht2               | Caught up with the overall progress                                | Film the video for the milestone deliverable                      |
 </br>
 
 
