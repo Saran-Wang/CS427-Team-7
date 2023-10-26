@@ -7,15 +7,24 @@
 
         <TextView
             android:id="@+id/city_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:text="Los Angeles" />
 
         <Button
             android:id="@+id/city_button"
-            android:layout_width="52dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Show Details" />
+            android:layout_weight="0.5"
+            android:text="Detail" />
+
+        <Button
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="x" />
 </LinearLayout>
