@@ -46,10 +46,12 @@ public class CreateAccountActivity extends BaseActivity {
 
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
+                // Switch is ON
+                // show light mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
                 // Switch is OFF
-                // Do something when the switch is in the "off" state.
+                // show light mode
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
             }
