@@ -1,6 +1,7 @@
 package edu.uiuc.cs427app;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -37,8 +38,6 @@ public class SettingActivity extends BaseActivity {
         fahrenheit = findViewById(R.id.fahrenheit);
         celsius = findViewById(R.id.celsius);
         btn_edit = findViewById(R.id.edit);
-
-
 
         User user = getUser();
         if(user != null) {

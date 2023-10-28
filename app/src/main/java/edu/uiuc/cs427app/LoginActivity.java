@@ -51,7 +51,6 @@ public class LoginActivity extends BaseActivity {
 
                     if(loginUser != null) {
                         LoginHelper.configureApplicationSetting(LoginActivity.this, loginUser);
-                        ThemeHelper.changeTheme("Light");
                         LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                     } else {
                         //Wrong Password

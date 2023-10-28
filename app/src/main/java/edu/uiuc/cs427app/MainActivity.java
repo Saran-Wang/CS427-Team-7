@@ -39,7 +39,6 @@ public class MainActivity extends BaseActivity {
 
     public void onResume() {
         super.onResume();
-        //TODO
         rv_city_list.setAdapter(new CustomAdapter(SharedPrefUtils.getIntData(this, "userid")));
     }
 
@@ -71,7 +70,7 @@ public class MainActivity extends BaseActivity {
                 SharedPrefUtils.saveData(MainActivity.this, "userid", -1);
                 SharedPrefUtils.saveData(MainActivity.this, "username", "");
                 ThemeHelper.changeTheme("Light");
-                MainActivity.this.startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                MainActivity.this.startActivity(new Intent(MainActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
             }
         });
 
