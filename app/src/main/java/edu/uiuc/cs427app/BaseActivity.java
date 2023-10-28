@@ -9,6 +9,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onResume();
         String username = SharedPrefUtils.getStringData(this,"username");
 
+        // Adding username once logined
         if(username != null && username.length() > 0){
             setTitle(getString(R.string.app_name) + "-" + username);
         } else {

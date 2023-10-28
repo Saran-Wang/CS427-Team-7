@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity {
     Button btn_buttonAddLocation;
     RecyclerView rv_city_list;
 
+    //puting setAdapter onResume will update data once adding city successfully on AddCityActivity
     public void onResume() {
         super.onResume();
         rv_city_list.setAdapter(new CustomAdapter(SharedPrefUtils.getIntData(this, "userid")));
@@ -116,11 +117,12 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(MainActivity.CustomAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
             viewHolder.getTextView().setText(localDataSet.get(position).getCityName().toString());
+            //delete a SavedCity via userid and cityid
+            //and load the updated dataset once delete successfully
             viewHolder.btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int userid = SharedPrefUtils.getIntData(MainActivity.this, "userid");
-                    SavedCity savedCity = AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().isCityExistByUserId(userid, localDataSet.get(position).getId());
                     AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().delete(userid, localDataSet.get(position).getId());
                     localDataSet = AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().loadCityByUserId(userid);
                     CustomAdapter.this.notifyDataSetChanged();

@@ -132,6 +132,7 @@ public class AddCityActivity extends BaseActivity {
             ((ViewGroup)viewHolder.getTextView().getParent()).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //pressing the list item will update textfield accordingly
                     et_user_input.setText(localDataSet.get(position).getCityName().toString());
                     et_user_input.setSelection(et_user_input.length() - 1);
                 }
