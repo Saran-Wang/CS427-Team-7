@@ -30,14 +30,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity  {
+public class MainActivity extends BaseActivity {
 
     ImageView iv_setting, iv_logout;
     TextView greeting;
     Button btn_buttonAddLocation;
     RecyclerView rv_city_list;
 
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         //TODO
         rv_city_list.setAdapter(new CustomAdapter(SharedPrefUtils.getIntData(this, "userid")));
@@ -67,11 +67,11 @@ public class MainActivity extends BaseActivity  {
             public void onClick(View view) {
                 //Logout
                 //Reset application data and Direct from MainActivity to SettingActivity
-                MainActivity.this.setTitle(getString(R.string.app_name) + "-" + SharedPrefUtils.getStringData(MainActivity.this,"username"));
+                MainActivity.this.setTitle(getString(R.string.app_name) + "-" + SharedPrefUtils.getStringData(MainActivity.this, "username"));
                 SharedPrefUtils.saveData(MainActivity.this, "userid", -1);
                 SharedPrefUtils.saveData(MainActivity.this, "username", "");
                 ThemeHelper.changeTheme("Light");
-                MainActivity.this.startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                MainActivity.this.startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
 
@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity  {
     public class CustomAdapter extends RecyclerView.Adapter<MainActivity.CustomAdapter.ViewHolder> {
         List<City> localDataSet = new ArrayList<>();
 
-        public  class ViewHolder extends RecyclerView.ViewHolder {
+        public class ViewHolder extends RecyclerView.ViewHolder {
             private TextView city_name;
             private Button btn_delete;
 
@@ -102,6 +102,7 @@ public class MainActivity extends BaseActivity  {
                 return city_name;
             }
         }
+
         public CustomAdapter(int userid) {
             localDataSet = AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().loadCityByUserId(userid);
         }
@@ -134,60 +135,3 @@ public class MainActivity extends BaseActivity  {
         }
     }
 }
-
-
-/*
-legacy mainactivity
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Initializing the UI components
-        // The list of locations should be customized per user (change the implementation so that
-        // buttons are added to layout programmatically
-        Button buttonChampaign = findViewById(R.id.buttonChampaign);
-        Button buttonChicago = findViewById(R.id.buttonChicago);
-        Button buttonLA = findViewById(R.id.buttonLA);
-        Button buttonNew = findViewById(R.id.buttonAddLocation);
-
-        buttonChampaign.setOnClickListener(this);
-        buttonChicago.setOnClickListener(this);
-        buttonLA.setOnClickListener(this);
-        buttonNew.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onClick(View view) {
-        Intent intent;
-        switch (view.getId()) {
-            case R.id.buttonChampaign:
-                intent = new Intent(this, DetailsActivity.class);
-                intent.putExtra("city", "Champaign");
-                startActivity(intent);
-                break;
-            case R.id.buttonChicago:
-                intent = new Intent(this, DetailsActivity.class);
-                intent.putExtra("city", "Chicago");
-                startActivity(intent);
-                break;
-            case R.id.buttonLA:
-                intent = new Intent(this, DetailsActivity.class);
-                intent.putExtra("city", "Los Angeles");
-                startActivity(intent);
-                break;
-            case R.id.buttonAddLocation:
-                // Implement this action to add a new location to the list of locations
-                break;
-        }
-    }
-}
-
- */
-
