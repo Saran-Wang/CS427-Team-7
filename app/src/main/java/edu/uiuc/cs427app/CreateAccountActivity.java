@@ -3,6 +3,7 @@ package edu.uiuc.cs427app;
 import android.content.Entity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -48,17 +49,16 @@ public class CreateAccountActivity extends BaseActivity {
         rg_temperature_standard = findViewById(R.id.temperature_standard);
         
         // Check the initial state of the theme selector switch
-        sw_theme_selector.isChecked();
+        //sw_theme_selector.isChecked();
 
         // Handle theme selector switch changes
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Switch is ON (Dark theme)
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
                 // Switch is OFF (Light theme)
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
+                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
 
@@ -72,6 +72,8 @@ public class CreateAccountActivity extends BaseActivity {
                 String confirm_password = et_confirm_password.getText().toString();
                 // Determine the selected theme based on the switch state
                 String theme = sw_theme_selector.isChecked() ? "Dark" : "Light";
+                Log.i("theme", "theme " + theme);
+
                 // Determine the selected temperature standard based on the selected radio button
                 String temperature_standard = ((RadioButton)findViewById(rg_temperature_standard.getCheckedRadioButtonId())).getText().toString();
                 // Validate user input according to registration rules
