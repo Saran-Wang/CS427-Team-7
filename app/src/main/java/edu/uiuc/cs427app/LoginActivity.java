@@ -51,7 +51,7 @@ public class LoginActivity extends BaseActivity {
 
                     if(loginUser != null) {
                         LoginHelper.configureApplicationSetting(LoginActivity.this, loginUser);
-                        LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                     } else {
                         //Wrong Password
                         AlertHelper.displayDialog(LoginActivity.this, "Wrong Password");

@@ -42,9 +42,6 @@ public class SettingActivity extends BaseActivity {
 
         User user = getUser();
         if(user != null) {
-            //TODO
-            //init rg_temperature_standard, sp_theme_selector by user data
-
             boolean theme_dark = user.getTheme().equals("Dark");
             String tempUnit = user.getTemperature_format();
             boolean f = tempUnit.equals("Fahrenheit");
@@ -57,7 +54,6 @@ public class SettingActivity extends BaseActivity {
             } else if (c) {
                 rg_temperature_standard.check(celsius.getId());
             }
-
         }
 
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -67,7 +63,6 @@ public class SettingActivity extends BaseActivity {
                 // Switch is OFF
                 // Do something when the switch is in the "off" state.
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
             }
         });
 
