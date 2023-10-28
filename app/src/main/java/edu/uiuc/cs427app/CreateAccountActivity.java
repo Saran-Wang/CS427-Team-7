@@ -112,7 +112,7 @@ public class CreateAccountActivity extends BaseActivity {
     public int validateRegistrationRules(String username, String password, String confirm_password, String theme){
         if (username.length() < 6) {
             // 1 - username is not fulfilling the length requirement
-            return 1;
+            return 0;
         }
         if (password.length() < 6) {
             // 2 - password is not fulfilling the length requirement
