@@ -69,16 +69,27 @@ public class AddCityActivity extends BaseActivity {
                 City city = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().findByName(et_user_input.getText().toString());
 
                 if(city != null) {
-                    SavedCity mySavedCity = AppDatabase.getAppDatabase(AddCityActivity.this).savedCityDao().isCityExistByUserId(SharedPrefUtils.getIntData(AddCityActivity.this, "userid"), city.getId());
+                    SavedCity isExistCity = AppDatabase.getAppDatabase(AddCityActivity.this).savedCityDao().isCityExistByUserId(SharedPrefUtils.getIntData(AddCityActivity.this, "userid"), city.getId());
 
-                    if(mySavedCity!= null) {
-                        AlertHelper.displayDialog(AddCityActivity.this,  "City is added already!");
+                    if(isExistCity!= null) {
+                        // if the city did exist before in the list, we prompt a msg box and clear the input text field and return
+                        AlertHelper.displayDialog(AddCityActivity.this, city.getCityName() + " is added already!");
+                        et_user_input.getText().clear();
                         return;
                     }
 
+
+                    // else we add the new city to the list according to user id and city id
                     SavedCity savedCity = new SavedCity(SharedPrefUtils.getIntData(AddCityActivity.this, "userid"), city.getId());
                     AppDatabase.getAppDatabase(AddCityActivity.this).savedCityDao().insertAll(savedCity);
-                    AddCityActivity.this.onBackPressed();
+
+                    // prompt a msg box to say we added the city
+                    AlertHelper.displayDialog(AddCityActivity.this,   "Added " + city.getCityName() + " to the list!");
+
+                    // Changed the behavior here, after the city is added, clear out the input,
+                    // So user can continue add more cities
+                    et_user_input.getText().clear();
+                    //AddCityActivity.this.onBackPressed();
                 } else {
                     AlertHelper.displayDialog(AddCityActivity.this, "No city found!");
                 }
