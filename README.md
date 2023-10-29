@@ -163,14 +163,14 @@ Meeting notes: Made sure that each team member finished the task. Reviewed the m
 
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|  hmyu2              | Added documentation for `LoginAcitivity`                                | Learning to implement weather information feature                      |
-|  pbrunet2              | Added documentation for `AddCityActivity - filtering city by user input`                                |Learning to implement weather information feature                        |
-| sriramr4               |Added documentation for   `MainActivity - making a list of saved cities for each user`                                 | Learning to implement weather information feature   |
-| shiyuan8               | Added documentation for  `CreateAccountActivity`                                | Learning to implement weather information feature                       |
-| nasht2               | Shot the video for milestone 3                               | Learning to implement interactive map feature                       |
-| yinzhel3               | Added documentation for  `AddCityActivity -  add a new city`                                |  Learning to implement interactive map feature                      |
-|  kona2              | Added documentation for  `MainActivity - delete a city for particular user`                                |  Learning to implement interactive map feature                      |
-| bo12               |Added documentation for   `SettingActivity`                                 |  Learning to implement interactive map feature                      |
+|  hmyu2              | Added documentation for `LoginAcitivity`                                | Learn to implement weather information feature                      |
+|  pbrunet2              | Added documentation for `AddCityActivity - filtering city by user input`                                |Learn to implement weather information feature                        |
+| sriramr4               |Added documentation for   `MainActivity - making a list of saved cities for each user`                                 | Learn to implement weather information feature   |
+| shiyuan8               | Added documentation for  `CreateAccountActivity`                                | Learn to implement weather information feature                       |
+| nasht2               | Shot the video for milestone 3                               | Learn to implement interactive map feature                       |
+| yinzhel3               | Added documentation for  `AddCityActivity -  add a new city`                                |  Learn to implement interactive map feature                      |
+|  kona2              | Added documentation for  `MainActivity - delete a city for particular user`                                |  Learn to implement interactive map feature                      |
+| bo12               |Added documentation for   `SettingActivity`                                 |  Learn to implement interactive map feature                      |
 </br>
 
 <b>Week 6</b>
