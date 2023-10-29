@@ -68,8 +68,7 @@ public class CreateAccountActivity extends BaseActivity {
 
         // Handle theme selector switch changes
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            String username = SharedPrefUtils.getStringData(CreateAccountActivity.this, "username");
-
+            //avoid to be triggered when it is not necessary
             if(isAppear) {
                 if (isChecked) {
                     // Switch is ON

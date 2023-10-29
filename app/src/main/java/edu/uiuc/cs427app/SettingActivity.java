@@ -57,7 +57,7 @@ public class SettingActivity extends BaseActivity {
         btn_edit = findViewById(R.id.edit);
 
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    //avoid to be triggered when user is logging off
+                    //avoid to be triggered when it is not necessary
                     if(isAppear) {
                         if (isChecked) {
                             // Switch is ON
