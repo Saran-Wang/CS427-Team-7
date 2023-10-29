@@ -27,6 +27,18 @@ public class SettingActivity extends BaseActivity {
     Switch sw_theme_selector;
     Button btn_edit;
 
+    boolean isAppear = false;
+    //onResume will be called once the page is shown
+    public void onResume(){
+        super.onResume();
+        isAppear = true;
+    }
+    //onPause will be called once the page is disappeared
+
+    public void onPause(){
+        super.onPause();
+        isAppear = false;
+    }
 
     /*
     * show user customized UI preference after user clicks on the Setting button on home screen
@@ -46,7 +58,7 @@ public class SettingActivity extends BaseActivity {
 
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     //avoid to be triggered when user is logging off
-                    if(SharedPrefUtils.getIntData(SettingActivity.this, "userid") >= 0) {
+                    if(isAppear) {
                         if (isChecked) {
                             // switch is ON
                             // update Dark mode in database

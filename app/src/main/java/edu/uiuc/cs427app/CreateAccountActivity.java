@@ -40,6 +40,17 @@ public class CreateAccountActivity extends BaseActivity {
 
     Button btn_create;
 
+    boolean isAppear = false;
+    //onResume will be called once the page is shown
+    public void onResume(){
+        super.onResume();
+        isAppear = true;
+    }
+    //onPause will be called once the page is disappeared
+    public void onPause(){
+        super.onPause();
+        isAppear = false;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +70,7 @@ public class CreateAccountActivity extends BaseActivity {
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
             String username = SharedPrefUtils.getStringData(CreateAccountActivity.this, "username");
 
-            if(username == null || username.length() == 0) {
+            if(isAppear) {
                 if (isChecked) {
                     // Switch is ON
                     // show dark mode
