@@ -71,7 +71,7 @@ public abstract class AppDatabase extends RoomDatabase {
         return sInstance;
     }
 
-
+    //parse input stream of csv data into arraylist of city
     private static ArrayList<City> parse(InputStream in) throws IOException {
         ArrayList<City> results = new ArrayList<City>();
 
