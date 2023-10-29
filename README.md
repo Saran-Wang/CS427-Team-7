@@ -21,7 +21,7 @@ The code for CS427 Android app.
 <b>Weekly Progress Reports</b>
 </br>
 </br>
-Meeting time: Every Saturday from 4pm - 5pm CST
+Meeting time: Every Saturday from 4pm - 5pm CST (If necessary, we may have an additional meeting on Wednesday from 7 pm to 8 pm CST)
 </br>
 Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUVjMHowN2JzMEhMVGp3TTFpUT09
 </br>
@@ -129,28 +129,49 @@ Meeting notes: Reviewed the main objective of Milestone 3, delegated specific ta
 | bo12               |  Reviewed the main objective of Milestone 3                               |  Complete  `SettingActivity`                  |
 |  yinzhel3              |  Reviewed the main objective of Milestone 3                               |  Complete  `AddCityActivity -  add a new city`                 |
 |  kona2              |  Reviewed the main objective of Milestone 3                               | Complete    `MainActivity - delete a city for particular user`                  |
-|                |                                 |                       |
+
 </br>
 
 
 <b>Week 5</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 10/25/23 7pm - 8pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present:pbrunet2, nasht2,bo12,sriramr4,hmyu2,kona2,yinzhel3,shiyuan8
+</br>
+Meeting notes: Made sure that each team member was on track and reminded each of us to adhere to coding style guidelines and maintain clear code documentation.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|hmyu2                |  Completed `LoginAcitivity`; Provided overall guidelines to each team member for developing all features.                               |  Add documentation for `LoginAcitivity`     |
+| shiyuan8               |  Completed `CreateAccountActivity`                                |Add documentation for  `CreateAccountActivity`  |                      
+|bo12                |  Completed `SettingActivity`                               |Add documentation for   `SettingActivity`                   |
+| pbrunet2               |  Complete `AddCityActivity - filtering city by user input`                               |Add documentation for `AddCityActivity - filtering city by user input`                       |
+|yinzhel3                |  Continued working on `AddCityActivity -  add a new city`                               | Add documentation for  `AddCityActivity -  add a new city`                    |
+| sriramr4               | Continued working on  `MainActivity - making a list of saved cities for each user`                              | Add documentation for   `MainActivity - making a list of saved cities for each user`                   |
+| kona2               |  Continued working on `MainActivity - delete a city for particular user`                               | Add documentation for  `MainActivity - delete a city for particular user` |
+| nasht2               | Caught up with the overall progress                                | Film the video for the milestone deliverable                      |
 </br>
 
+
+Meeting time: 10/28/23 4pm - 5pm CST
+</br>
+Members present:bo12, nasht2,sriramr4,hmyu2,kona2,shiyuan8, pbrunet2,yinzhel3
+</br>
+Meeting notes: Made sure that each team member finished the task. Reviewed the main objective of Milestone 4, and delegated specific learning tasks to each team member.
+</br>
+
+| NetID          | Progress from last week         | Tasks for next week   |
+| ---------------| --------------------------------| ----------------------|
+|  hmyu2              | Added documentation for `LoginAcitivity`                                | Learn to implement weather information feature                      |
+|  pbrunet2              | Added documentation for `AddCityActivity - filtering city by user input`                                |Learn to implement weather information feature                        |
+| sriramr4               |Added documentation for   `MainActivity - making a list of saved cities for each user`                                 | Learn to implement weather information feature   |
+| shiyuan8               | Added documentation for  `CreateAccountActivity`                                | Learn to implement weather information feature                       |
+| nasht2               | Shot the video for milestone 3                               | Learn to implement interactive map feature                       |
+| yinzhel3               | Added documentation for  `AddCityActivity -  add a new city`                                |  Learn to implement interactive map feature                      |
+|  kona2              | Added documentation for  `MainActivity - delete a city for particular user`                                |  Learn to implement interactive map feature                      |
+| bo12               |Added documentation for   `SettingActivity`                                 |  Learn to implement interactive map feature                      |
+</br>
 
 <b>Week 6</b>
 </br>

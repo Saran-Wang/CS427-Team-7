@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/*
+Activity for displaying weather details and the map of a city.
+*/
 public class DetailsActivity extends BaseActivity implements View.OnClickListener{
 
     @Override

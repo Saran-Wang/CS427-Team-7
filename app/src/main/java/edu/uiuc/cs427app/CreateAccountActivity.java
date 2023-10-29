@@ -3,6 +3,7 @@ package edu.uiuc.cs427app;
 import android.content.Entity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,7 +23,15 @@ import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.LoginHelper;
 
+/*
+Activity for creating a user account.
+After the user provides their username and password, 
+the app performs user credentials validation. 
+This includes checking if the username is already in use and 
+verifying that the provided username and password meet the app's requirements.
+ */
 public class CreateAccountActivity extends BaseActivity {
+    // Define UI elements
     EditText et_username, et_password, et_confirm_password;
 
     Switch sw_theme_selector;
@@ -34,62 +43,69 @@ public class CreateAccountActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-
+        // Initialize UI elements by finding their corresponding views in the layout
         et_username = findViewById(R.id.username);
         et_password = findViewById(R.id.password);
         et_confirm_password = findViewById(R.id.confirm_password);
         sw_theme_selector = findViewById(R.id.Mode);
         btn_create = findViewById(R.id.create);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
+        
+        // Check the initial state of the theme selector switch
+        //sw_theme_selector.isChecked();
 
-        sw_theme_selector.isChecked();
-
+        // Handle theme selector switch changes
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                // Switch is ON
-                // show light mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                // Switch is ON (Dark theme)
+                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
-                // Switch is OFF
-                // show light mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
+                // Switch is OFF (Light theme)
+                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
+
+        // Handle create button click
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Retrieve user input from the UI elements
                 String username = et_username.getText().toString();
                 String password = et_password.getText().toString();
                 String confirm_password = et_confirm_password.getText().toString();
+                // Determine the selected theme based on the switch state
                 String theme = sw_theme_selector.isChecked() ? "Dark" : "Light";
-                String temperature_standard = ((RadioButton)findViewById(rg_temperature_standard.getCheckedRadioButtonId())).getText().toString();
+                Log.i("theme", "theme " + theme);
 
+                // Determine the selected temperature standard based on the selected radio button
+                String temperature_standard = ((RadioButton)findViewById(rg_temperature_standard.getCheckedRadioButtonId())).getText().toString();
+                // Validate user input according to registration rules
                 int validate_result = validateRegistrationRules(username, password, confirm_password, theme);
 
                 //validate_result == 0 means rules are validated
                 if(validate_result == 0) {
+                    // Rules are validated, proceed with registration
 
-                    //check username duplication
+                    // Check if the username already exists in the database
                     if(!isUsernameExistInDB(username)){
 
-                        //insert into database
+                        // Insert the user's information into the database
                         if(insertUserIntoDB(username, password, theme, temperature_standard)){
 
-                            //insert success and redirect to MainActivity
+                            // Registration is successful, configure application settings and navigate to the main activity
                             LoginHelper.configureApplicationSetting(CreateAccountActivity.this, username, password);
                             CreateAccountActivity.this.startActivity(new Intent(CreateAccountActivity.this, MainActivity.class));
 
                         } else {
-                            //insert database error
+                            // Database insertion error
                             AlertHelper.displayDialog(CreateAccountActivity.this, "Unable to insert in database");
                         }
                     } else {
-                        //Username already exists in database
+                        // Username already exists in the database
                         AlertHelper.displayDialog(CreateAccountActivity.this, "Username already exists");
                     }
                 } else {
-                    //show prompt
+                    // Show prompts based on the validation result
                     if(validate_result == 1) {
                         //1 - username is not fulfilling the requirement
                         AlertHelper.displayDialog(CreateAccountActivity.this, "Username should have at least 6 characters");
@@ -111,10 +127,11 @@ public class CreateAccountActivity extends BaseActivity {
         });
     }
 
+    // Function to validate user registration rules
     public int validateRegistrationRules(String username, String password, String confirm_password, String theme){
         if (username.length() < 6) {
             // 1 - username is not fulfilling the length requirement
-            return 1;
+            return 0;
         }
         if (password.length() < 6) {
             // 2 - password is not fulfilling the length requirement
@@ -139,20 +156,15 @@ public class CreateAccountActivity extends BaseActivity {
         return 0;
     }
 
-
+    // Function to check if the username already exists in the database
     public boolean isUsernameExistInDB(String username) {
         // If a user with the same username exists, user will not be null
         // Return false if the username doesn't exit
         // Return true if the username already exists in the database
         return AppDatabase.getAppDatabase(this).userDao().findByName(username) != null;
-//        User user = AppDatabase.getAppDatabase(this).userDao().findByName(username);
-//        if (user != null) {
-//            return true;
-//        };
-//        return false;
     }
 
-
+    // Function to insert the user's information into the database
     public boolean insertUserIntoDB(String username, String password, String theme, String temperature_standard){
         try {
             AppDatabase.getAppDatabase(this).userDao().insertAll(new  User(username, password, theme, temperature_standard));

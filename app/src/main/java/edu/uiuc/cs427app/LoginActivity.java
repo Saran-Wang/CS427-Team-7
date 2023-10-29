@@ -31,6 +31,15 @@ public class LoginActivity extends BaseActivity {
         tv_create = findViewById(R.id.create);
         btn_login = findViewById(R.id.submit);
 
+
+        /*
+        The onClickListener of Button, btn_login
+        will confirm the user input field (e.g. username and password)
+        whether it has a validated username and/or password or not.
+
+        If validated credential was filled in, the user will be directed to the MainActivity.
+        If not, a prompt message will be shown.
+         */
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +51,7 @@ public class LoginActivity extends BaseActivity {
 
                     if(loginUser != null) {
                         LoginHelper.configureApplicationSetting(LoginActivity.this, loginUser);
-                        LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                     } else {
                         //Wrong Password
                         AlertHelper.displayDialog(LoginActivity.this, "Wrong Password");
@@ -54,6 +63,11 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
+
+        /*
+        The onClickListener of textview, tv_create
+        will redirect the user to the CreateAccountActivity
+         */
         tv_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,10 +76,18 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
-
+    /*
+    The isUsernameExistInDB method is used to confirm
+    whether the parameter exists in the database or not.
+     */
     public boolean isUsernameExistInDB(String username) {
         return AppDatabase.getAppDatabase(this).userDao().findByName(username) != null;
     }
+
+    /*
+    The validateCredential method is used to confirm
+    whether the parameter username and password exists in the database or not.
+     */
     public User validateCredential(String username, String password) {
         return AppDatabase.getAppDatabase(this).userDao().findByNameAndPassword(username, password) ;
     }

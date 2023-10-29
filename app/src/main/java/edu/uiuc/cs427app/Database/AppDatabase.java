@@ -35,6 +35,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CityDao cityDao();
     public abstract SavedCityDao savedCityDao();
 
+    //initialize database instance if needed and preload a city list from csv
     public static AppDatabase getAppDatabase(Context context) {
         if (sInstance == null) {
             sInstance = Room.databaseBuilder(context, AppDatabase.class, "Weather.db")
@@ -43,11 +44,6 @@ public abstract class AppDatabase extends RoomDatabase {
                     .build();
         }
 
-        //TODO
-        if (sInstance.userDao().getAll() == null || sInstance.userDao().getAll().size() == 0) {
-            User user = new User("admin", "password", "Dark", "Celsius");
-            sInstance.userDao().insertAll(user);
-        }
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
