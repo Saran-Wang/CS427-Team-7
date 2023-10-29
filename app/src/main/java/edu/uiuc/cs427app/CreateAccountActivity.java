@@ -57,11 +57,13 @@ public class CreateAccountActivity extends BaseActivity {
         // Handle theme selector switch changes
         sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                // Switch is ON (Dark theme)
-                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                // Switch is ON
+                // show dark mode
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
-                // Switch is OFF (Light theme)
-                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                // Switch is OFF
+                // show light mode
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
 
@@ -131,7 +133,7 @@ public class CreateAccountActivity extends BaseActivity {
     public int validateRegistrationRules(String username, String password, String confirm_password, String theme){
         if (username.length() < 6) {
             // 1 - username is not fulfilling the length requirement
-            return 0;
+            return 0; 
         }
         if (password.length() < 6) {
             // 2 - password is not fulfilling the length requirement
