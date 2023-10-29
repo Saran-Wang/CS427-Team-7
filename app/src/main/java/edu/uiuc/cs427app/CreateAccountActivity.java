@@ -22,10 +22,11 @@ import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.LoginHelper;
+import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 /*
 Activity for new users to create a user account.
-After the user provides their username and password, 
+After the user provides their username and password,
 the app performs user credentials validation. 
 This includes checking if the username is already in use and 
 verifying that the provided username and password meet the app's requirements.
@@ -51,6 +52,25 @@ public class CreateAccountActivity extends BaseActivity {
         btn_create = findViewById(R.id.create);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
 
+        // Check the initial state of the theme selector switch
+        //sw_theme_selector.isChecked();
+
+        // Handle theme selector switch changes
+        sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            String username = SharedPrefUtils.getStringData(CreateAccountActivity.this, "username");
+
+            if(username == null || username.length() == 0) {
+                if (isChecked) {
+                    // Switch is ON
+                    // show dark mode
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    // Switch is OFF
+                    // show light mode
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
 
         // Handle create button click
         btn_create.setOnClickListener(new View.OnClickListener() {
@@ -116,9 +136,10 @@ public class CreateAccountActivity extends BaseActivity {
 
     // Function to validate user registration rules
     public int validateRegistrationRules(String username, String password, String confirm_password, String theme){
-        if (username.length() < 6) {
+        if (username.length() < 3) {
             // 1 - username is not fulfilling the length requirement (We have debate on this requirement)
-            return 0; 
+            // for most of the netids should have more than 3 characters
+            return 1;
         }
         if (password.length() < 6) {
             // 2 - password is not fulfilling the length requirement

@@ -1,6 +1,8 @@
 package edu.uiuc.cs427app;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,11 +38,34 @@ public class SettingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        sw_theme_selector = findViewById(R.id.Mode);
+        sw_theme_selector = findViewById(R.id.setting_mode);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
         fahrenheit = findViewById(R.id.fahrenheit);
         celsius = findViewById(R.id.celsius);
         btn_edit = findViewById(R.id.edit);
+
+        sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    //avoid to be triggered when user is logging off
+                    if(SharedPrefUtils.getIntData(SettingActivity.this, "userid") >= 0) {
+                        if (isChecked) {
+                            // switch is ON
+                            // update Dark mode in database
+                            updateTheme("Dark");
+                        } else {
+                            // switch is OFF
+                            // update Light mode in database
+                            updateTheme("Light");
+                        }
+                        //Delay for database execution and update UI accordingly
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                LoginHelper.configureApplicationSetting(SettingActivity.this, getUser());
+                            }
+                        }, 100);
+                    }
+        });
+
 
         User user = getUser();
         // display user customized UI feature
