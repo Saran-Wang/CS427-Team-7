@@ -115,17 +115,24 @@ public class MainActivity extends BaseActivity {
         }
 
         @Override
+        //DeleteCity method
+        //this method is used to delete a SavedCity via userid and cityid and then load the updated dataset once delete executes successfully
         public void onBindViewHolder(MainActivity.CustomAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
             viewHolder.getTextView().setText(localDataSet.get(position).getCityName().toString());
-            //delete a SavedCity via userid and cityid
-            //and load the updated dataset once delete successfully
-            viewHolder.btn_delete.setOnClickListener(new View.OnClickListener() {
+            //This line of code will set the text of the TextView in the ViewHolder to the city name at the given position in the dataset
+            viewHolder.btn_delete.setOnClickListener(new View.OnClickListener()
+                    //This line of code will create a button, when clicked the button will execute the code inside the method onClick
+            {
                 @Override
                 public void onClick(View view) {
                     int userid = SharedPrefUtils.getIntData(MainActivity.this, "userid");
+                    // this line of code retrieves the user id
                     AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().delete(userid, localDataSet.get(position).getId());
+                    // This line of code accesses the database and then deletes the saved city using user id and city id
                     localDataSet = AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().loadCityByUserId(userid);
+                    // This line of code updates the localDataSet with the latest city data for the user
                     CustomAdapter.this.notifyDataSetChanged();
+                    // This line of code will notify the adapter that the data has changed and to refresh the RecyclerView
                 }
             });
         }
