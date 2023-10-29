@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-Activity allowing users to view their saved cities, log out, add new cities, and delete existing cities. 
+Activity for users to view their saved cities, log out, add new cities, and delete existing cities. 
 */
 public class MainActivity extends BaseActivity {
 
