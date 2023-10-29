@@ -24,7 +24,7 @@ import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.LoginHelper;
 
 /*
-Activity for creating a user account.
+Activity for new users to create a user account.
 After the user provides their username and password, 
 the app performs user credentials validation. 
 This includes checking if the username is already in use and 
