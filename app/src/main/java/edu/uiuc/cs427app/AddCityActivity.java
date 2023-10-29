@@ -27,7 +27,7 @@ import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 /*
-Activity allowing users to add cities to their list of saved cities. 
+Activity for users to add cities to their list of saved cities. 
 It provides city suggestions as the user types in the city name and 
 handles the addition of selected cities to the user's list. 
 The CustomAdapter class is responsible for displaying city suggestions in a RecyclerView.
