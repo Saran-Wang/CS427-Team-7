@@ -84,14 +84,26 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-
+    /**
+     * CustomAdapter is a class that extends RecyclerView.Adapter and is designed to work with a list of City objects.
+     * It is used to bind data from a data source to the views in a RecyclerView.
+     */
     public class CustomAdapter extends RecyclerView.Adapter<MainActivity.CustomAdapter.ViewHolder> {
+
+        // List to hold City objects
         List<City> localDataSet = new ArrayList<>();
 
+         /**
+         * ViewHolder is an inner class responsible for holding references to the views in each item of the RecyclerView.
+         */
         public class ViewHolder extends RecyclerView.ViewHolder {
             private TextView city_name;
             private Button btn_delete;
 
+            /**
+            * Constructor for the ViewHolder.
+            * @param view The View object representing an item in the RecyclerView.
+            */
             public ViewHolder(View view) {
                 super(view);
                 city_name = (TextView) view.findViewById(R.id.city_name);
@@ -103,10 +115,23 @@ public class MainActivity extends BaseActivity {
             }
         }
 
+        /**
+         * Constructor for CustomAdapter.
+         *
+         * @param userid The user ID used to load a list of cities from a database.
+         */
         public CustomAdapter(int userid) {
             localDataSet = AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().loadCityByUserId(userid);
         }
 
+
+        /**
+         * This method is responsible for creating new ViewHolder instances to represent items in the RecyclerView.
+         *
+         * @param parent The ViewGroup into which the new View will be added.
+         * @param viewType The type of view to be created.
+         * @return A new ViewHolder that holds the view for an item in the RecyclerView.
+         */
         @NonNull
         @Override
         public MainActivity.CustomAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -137,6 +162,10 @@ public class MainActivity extends BaseActivity {
             });
         }
 
+        /**
+         * Getter method for the TextView displaying the city name.
+         * @return The TextView for the city name.
+         */
         @Override
         public int getItemCount() {
             return localDataSet.size();
