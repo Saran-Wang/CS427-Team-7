@@ -3,6 +3,7 @@ package edu.uiuc.cs427app;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -139,4 +140,24 @@ public class SettingActivity extends BaseActivity {
         AppDatabase.getAppDatabase(this).userDao().updateTempUnitByName(getUserId(), tempUnit);
     }
 
+    //Will reset the theme setting if necessary
+    //it would override the "back button" of the bottom three buttons
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        LoginHelper.configureApplicationSetting(SettingActivity.this, getUser());
+    }
+
+    //Will reset the theme setting if necessary
+    //it would override the "back button" of the menu bar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return true;
+    }
 }

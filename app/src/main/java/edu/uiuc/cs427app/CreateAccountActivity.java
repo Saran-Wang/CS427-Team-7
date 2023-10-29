@@ -4,6 +4,7 @@ import android.content.Entity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -192,4 +193,26 @@ public class CreateAccountActivity extends BaseActivity {
         }
         return false;
     }
+
+    //Clear the dark theme if the user set it before
+    //it would override the "back button" of the bottom three buttons
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    }
+
+    //Clear the dark theme if the user set it before
+    //it would override the "back button" of the menu bar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return true;
+    }
+
 }
