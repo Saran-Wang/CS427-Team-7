@@ -50,22 +50,7 @@ public class CreateAccountActivity extends BaseActivity {
         sw_theme_selector = findViewById(R.id.Mode);
         btn_create = findViewById(R.id.create);
         rg_temperature_standard = findViewById(R.id.temperature_standard);
-        
-        // Check the initial state of the theme selector switch
-        //sw_theme_selector.isChecked();
 
-        // Handle theme selector switch changes
-        sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                // Switch is ON
-                // show dark mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            } else {
-                // Switch is OFF
-                // show light mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-        });
 
         // Handle create button click
         btn_create.setOnClickListener(new View.OnClickListener() {

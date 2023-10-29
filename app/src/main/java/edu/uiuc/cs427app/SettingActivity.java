@@ -64,17 +64,6 @@ public class SettingActivity extends BaseActivity {
 
         }
 
-        sw_theme_selector.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                // switch is ON
-                // show light mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            } else {
-                // switch is OFF
-                // show dark mode
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-        });
 
         /*
         * once user clicks on the "DONE" button,
