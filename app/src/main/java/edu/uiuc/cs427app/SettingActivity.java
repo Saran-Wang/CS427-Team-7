@@ -60,21 +60,14 @@ public class SettingActivity extends BaseActivity {
                     //avoid to be triggered when user is logging off
                     if(isAppear) {
                         if (isChecked) {
-                            // switch is ON
-                            // update Dark mode in database
-                            updateTheme("Dark");
+                            // Switch is ON
+                            // show dark mode
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                         } else {
-                            // switch is OFF
-                            // update Light mode in database
-                            updateTheme("Light");
+                            // Switch is OFF
+                            // show light mode
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                         }
-                        //Delay for database execution and update UI accordingly
-                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                LoginHelper.configureApplicationSetting(SettingActivity.this, getUser());
-                            }
-                        }, 100);
                     }
         });
 
