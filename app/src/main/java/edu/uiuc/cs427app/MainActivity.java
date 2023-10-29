@@ -30,14 +30,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Activity allowing users to view their saved cities, log out, add new cities, and delete existing cities. 
+*/
 public class MainActivity extends BaseActivity {
 
     ImageView iv_setting, iv_logout;
     TextView greeting;
     Button btn_buttonAddLocation;
     RecyclerView rv_city_list;
-
-    //puting setAdapter onResume will update data once adding city successfully on AddCityActivity
+    
+    // Setting the adapter in onResume to update data after adding a city successfully in AddCityActivity
     public void onResume() {
         super.onResume();
         rv_city_list.setAdapter(new CustomAdapter(SharedPrefUtils.getIntData(this, "userid")));
@@ -47,13 +50,15 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Initialize UI elements
         iv_setting = findViewById(R.id.setting);
         iv_logout = findViewById(R.id.logout);
         greeting = findViewById(R.id.greeting);
         btn_buttonAddLocation = findViewById(R.id.buttonAddLocation);
         rv_city_list = findViewById(R.id.city_list);
         rv_city_list.setLayoutManager(new LinearLayoutManager(this));
-
+        
+        // Callback for the "Setting" button
         iv_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +67,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        // Callback for the "Logout" button
         iv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +80,8 @@ public class MainActivity extends BaseActivity {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
             }
         });
-
+        
+        // Callback for the "Add Location" button
         btn_buttonAddLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,8 +90,8 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-
-
+    
+    // CustomAdapter class for handling the RecyclerView
     public class CustomAdapter extends RecyclerView.Adapter<MainActivity.CustomAdapter.ViewHolder> {
         List<City> localDataSet = new ArrayList<>();
 
@@ -102,7 +109,8 @@ public class MainActivity extends BaseActivity {
                 return city_name;
             }
         }
-
+        
+        // Constructor for the CustomAdapter
         public CustomAdapter(int userid) {
             localDataSet = AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().loadCityByUserId(userid);
         }
@@ -113,10 +121,11 @@ public class MainActivity extends BaseActivity {
             View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.recycler_view_citylist_row, parent, false);
             return new ViewHolder(view);
         }
-
+        
+        /* DeleteCity method
+        this method is used to delete a SavedCity via userid and cityid and then load the updated dataset once delete executes successfully
+        */
         @Override
-        //DeleteCity method
-        //this method is used to delete a SavedCity via userid and cityid and then load the updated dataset once delete executes successfully
         public void onBindViewHolder(MainActivity.CustomAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
             viewHolder.getTextView().setText(localDataSet.get(position).getCityName().toString());
             //This line of code will set the text of the TextView in the ViewHolder to the city name at the given position in the dataset
