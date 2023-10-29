@@ -52,8 +52,10 @@ public class SettingActivity extends BaseActivity {
             boolean f = tempUnit.equals("Fahrenheit");
             boolean c = tempUnit.equals("Celsius");
 
+            // show user customized theme
             sw_theme_selector.setChecked(theme_dark);
 
+            // show user customized temperature unit
             if(f){
                 rg_temperature_standard.check(fahrenheit.getId());
             } else if (c) {
