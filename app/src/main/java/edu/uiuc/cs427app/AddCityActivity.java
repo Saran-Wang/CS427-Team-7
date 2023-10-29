@@ -27,7 +27,7 @@ import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 /*
-This code allows users to add cities to their list of saved cities. 
+Activity allowing users to add cities to their list of saved cities. 
 It provides city suggestions as the user types in the city name and 
 handles the addition of selected cities to the user's list. 
 The CustomAdapter class is responsible for displaying city suggestions in a RecyclerView.
@@ -75,31 +75,32 @@ public class AddCityActivity extends BaseActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Find the city object based on user input
                 City city = AppDatabase.getAppDatabase(AddCityActivity.this).cityDao().findByName(et_user_input.getText().toString());
 
                 if(city != null) {
+                    // Check if the city is already in the user's saved cities list
                     SavedCity isExistCity = AppDatabase.getAppDatabase(AddCityActivity.this).savedCityDao().isCityExistByUserId(SharedPrefUtils.getIntData(AddCityActivity.this, "userid"), city.getId());
 
                     if(isExistCity!= null) {
-                        //If the city did exist before in the list, we prompt a msg box and clear the input text field and return
+                        //If the city did exist before in the list, we prompt a message box and clear the input text field and return
                         AlertHelper.displayDialog(AddCityActivity.this, city.getCityName() + " is added already!");
                         et_user_input.getText().clear();
                         return;
                     }
 
-
-                    // else we add the new city to the list according to user id and city id
+                    // else we add the new city to the user's saved cities list
                     SavedCity savedCity = new SavedCity(SharedPrefUtils.getIntData(AddCityActivity.this, "userid"), city.getId());
                     AppDatabase.getAppDatabase(AddCityActivity.this).savedCityDao().insertAll(savedCity);
 
-                    // Prompt a msg box to say we added the city
+                    // Prompt a message box to confirm the addition
                     AlertHelper.displayDialog(AddCityActivity.this,   "Added " + city.getCityName() + " to the list!");
 
-                    // Changed the behavior here, after the city is added, clear out the input,
-                    // so user can continue add more cities
+                    // Clear the input field for adding more cities
                     et_user_input.getText().clear();
                     //AddCityActivity.this.onBackPressed();
                 } else {
+                    // Show a message if no matching city is found
                     AlertHelper.displayDialog(AddCityActivity.this, "No city found!");
                 }
             }
