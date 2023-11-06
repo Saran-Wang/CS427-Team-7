@@ -107,6 +107,9 @@ public class MainActivity extends BaseActivity {
             private TextView city_name;
             private Button btn_delete;
 
+            private Button map_button;
+            private Button weather_button;
+
             /**
             * Constructor for the ViewHolder.
             * @param view The View object representing an item in the RecyclerView.
@@ -115,6 +118,8 @@ public class MainActivity extends BaseActivity {
                 super(view);
                 city_name = (TextView) view.findViewById(R.id.city_name);
                 btn_delete = view.findViewById(R.id.delete);
+                map_button = view.findViewById(R.id.map_button);
+                weather_button = view.findViewById(R.id.weather_button);
             }
 
             public TextView getTextView() {
