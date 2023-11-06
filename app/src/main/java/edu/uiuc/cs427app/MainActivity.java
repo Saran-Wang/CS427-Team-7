@@ -108,6 +108,9 @@ public class MainActivity extends BaseActivity {
             private Button weather_button, map_button;
             private Button btn_delete;
 
+            private Button map_button;
+            private Button weather_button;
+
             /**
             * Constructor for the ViewHolder.* @param view The View object representing an item in the RecyclerView.
              */
@@ -120,6 +123,8 @@ public class MainActivity extends BaseActivity {
                 weather_button = view.findViewById(R.id.weather_button);
                 map_button = view.findViewById(R.id.map_button);
                 btn_delete = view.findViewById(R.id.delete);
+                map_button = view.findViewById(R.id.map_button);
+                weather_button = view.findViewById(R.id.weather_button);
             }
 
             public TextView getTextView() {
@@ -178,6 +183,28 @@ public class MainActivity extends BaseActivity {
                     localDataSet = AppDatabase.getAppDatabase(MainActivity.this).savedCityDao().loadCityByUserId(userid);
                     // This line of code updates the localDataSet with the latest city data for the user
                     CustomAdapter.this.notifyDataSetChanged();
+                    // This line of code will notify the adapter that the data has changed and to refresh the RecyclerView
+                }
+            });
+
+            viewHolder.map_button.setOnClickListener(new View.OnClickListener()
+                    //This line of code will create a button, when clicked the button will execute the code inside the method onClick
+            {
+                @Override
+                public void onClick(View view) {
+                    // this line of code retrieves the city
+                    String selectedCity = localDataSet.get(position).getCityName().toString();
+                    // This line of code accesses the database and then deletes the saved city using user id and city id
+                    // openMapActivity(selectedCity);
+                    Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
+
+                    // You can pass the selected city's name or any other relevant data to the MapActivity.
+                    mapIntent.putExtra("cityName", selectedCity);
+
+                    // Start the MapActivity.
+                    MainActivity.this.startActivity(mapIntent);
+                    // This line of code updates the localDataSet with the latest city data for the user
+                    // CustomAdapter.this.notifyDataSetChanged();
                     // This line of code will notify the adapter that the data has changed and to refresh the RecyclerView
                 }
             });
