@@ -18,6 +18,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.*;
+import android.graphics.Color;
+
+import edu.uiuc.cs427app.Database.AppDatabase;
+import edu.uiuc.cs427app.Database.Entity.User;
+
+import edu.uiuc.cs427app.Database.Entity.User;
+import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 public class WeatherActivity extends BaseActivity {
     private String ENDPOINT = "https://api.open-meteo.com/v1/forecast?latitude=_lat_&longitude=_log_&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&timezone=auto";
@@ -28,6 +35,8 @@ public class WeatherActivity extends BaseActivity {
 
     private RequestQueue requestQueue;
     private Map<Integer, String> weatherMap;
+    private boolean f=false;
+    private boolean c=true;
 
 
     @Override
@@ -35,6 +44,13 @@ public class WeatherActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
         getWeatherCodeMap();
+        User user = getUser();
+        if(user != null) {
+            String tempUnit = user.getTemperature_format();
+            f = tempUnit.equals("Fahrenheit");
+            c = tempUnit.equals("Celsius");
+        }
+
 
         String cityName = getIntent().getStringExtra("cityName");
         String lat = getIntent().getStringExtra("lat");
@@ -43,9 +59,6 @@ public class WeatherActivity extends BaseActivity {
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         fetchPosts();
 
-//        JsonParser gsonBuilder = new JsonParser();
-//        gsonBuilder.setDateFormat("M/d/yy hh:mm a");
-//        gson = gsonBuilder.create();
         tv_city_name =  findViewById(R.id.city_name);
         tv_datetime = findViewById(R.id.city_current_datetime);
         tv_temp = findViewById(R.id.city_temperature);
@@ -54,12 +67,20 @@ public class WeatherActivity extends BaseActivity {
         tv_wind = findViewById(R.id.city_wind);
         loading = findViewById(R.id.loading);
         tv_city_name.setText(cityName);
-
     }
-
+    // get user id in database
+    private int getUserId(){
+        return SharedPrefUtils.getIntData(this, "userid");
+    }
+    // get user object in database, with signature: id.
+    private User getUser() {
+        return AppDatabase.getAppDatabase(this).userDao().findById(getUserId());
+    }
+    /*
+    WMO Weather interpretation codes (WW)
+     */
     private  void getWeatherCodeMap(){
         weatherMap = new HashMap<>();
-
         // Populate the map
         weatherMap.put(0, "Clear sky");
         weatherMap.put(1, "Mainly clear");
@@ -93,7 +114,6 @@ public class WeatherActivity extends BaseActivity {
 
     private void fetchPosts() {
         StringRequest request = new StringRequest(Request.Method.GET, ENDPOINT, onPostsLoaded, onPostsError);
-
         requestQueue.add(request);
     }
 
@@ -104,24 +124,33 @@ public class WeatherActivity extends BaseActivity {
                 JSONObject obj = new JSONObject(response);
                 JSONObject current = obj.getJSONObject("current");
                 Log.i("PostActivity", obj.getJSONObject("current").getString("temperature_2m"));
-                tv_datetime.setText(current.getString("time"));
+                tv_datetime.setText(current.getString("time").replace('T',' ')); //replaces all occurrences of 'T' to space
                 tv_weather.setText(weatherMap.get(current.getInt("weather_code")));
-                tv_temp.setText(current.getString("temperature_2m"));
-                tv_wind.setText(current.getString("wind_speed_10m")+"\n"+current.getString("wind_direction_10m"));
-                tv_humidity.setText(current.getString("relative_humidity_2m"));
+
+                // show user customized temperature unit
+                if(f){
+                    tv_temp.setText(Integer.toString((current.getInt("temperature_2m")* 9/5) + 32)+"°F");
+                } else if (c) {
+                    tv_temp.setText(current.getString("temperature_2m")+"°C");
+                }
+                tv_wind.setText("Wind Direction: "+current.getString("wind_direction_10m")+"°"+
+                        "\n"+"Wind Speed: "+current.getString("wind_speed_10m")+"km/h");
+                tv_humidity.setText(current.getString("relative_humidity_2m")+"%");
 
             } catch (JSONException e) {
                 //some exception handler code.
                 Log.e("PostActivity", e.toString());
             }
-
         }
     };
 
     private final Response.ErrorListener onPostsError = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            Log.e("PostActivity", error.toString());
+            Log.e("PostActivity here", error.toString());
+            tv_datetime.setText("Data is not available right now. Please try again later!");
+            tv_datetime.setTextColor(Color.parseColor("#FF0000"));
+
         }
     };
 

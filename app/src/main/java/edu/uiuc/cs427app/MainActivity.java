@@ -105,9 +105,7 @@ public class MainActivity extends BaseActivity {
          */
         public class ViewHolder extends RecyclerView.ViewHolder {
             private TextView city_name;
-//            private Button weather_button, map_button;
             private Button btn_delete;
-
             private Button map_button;
             private Button weather_button;
 
@@ -123,8 +121,6 @@ public class MainActivity extends BaseActivity {
                 weather_button = view.findViewById(R.id.weather_button);
                 map_button = view.findViewById(R.id.map_button);
                 btn_delete = view.findViewById(R.id.delete);
-//                map_button = view.findViewById(R.id.map_button);
-//                weather_button = view.findViewById(R.id.weather_button);
             }
 
             public TextView getTextView() {
@@ -186,7 +182,9 @@ public class MainActivity extends BaseActivity {
                     // This line of code will notify the adapter that the data has changed and to refresh the RecyclerView
                 }
             });
-
+            /* Show interactive map
+            This method is for showing a city's map
+             */
             viewHolder.map_button.setOnClickListener(new View.OnClickListener()
                     //This line of code will create a button, when clicked the button will execute the code inside the method onClick
             {
@@ -204,6 +202,9 @@ public class MainActivity extends BaseActivity {
                     MainActivity.this.startActivity(mapIntent);
                 }
             });
+            /* Show weather information
+            This method is for showing a city's weather information
+             */
             viewHolder.weather_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
