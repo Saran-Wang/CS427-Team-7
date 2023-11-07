@@ -1,6 +1,7 @@
 package edu.uiuc.cs427app;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.util.Log;
@@ -10,12 +11,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.json.*;
 import android.graphics.Color;
@@ -23,7 +20,7 @@ import android.graphics.Color;
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.User;
 
-import edu.uiuc.cs427app.Database.Entity.User;
+import edu.uiuc.cs427app.Helper.AlertHelper;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 public class WeatherActivity extends BaseActivity {
@@ -35,30 +32,24 @@ public class WeatherActivity extends BaseActivity {
 
     private RequestQueue requestQueue;
     private Map<Integer, String> weatherMap;
-    private boolean f=false;
-    private boolean c=true;
-
+    private boolean fahrenheit = false;
+    private boolean celsius = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        getWeatherCodeMap();
+        initWeatherCodeMap();
+
+        //gather user's setting on temperature format
         User user = getUser();
         if(user != null) {
             String tempUnit = user.getTemperature_format();
-            f = tempUnit.equals("Fahrenheit");
-            c = tempUnit.equals("Celsius");
+            fahrenheit = tempUnit.equals("Fahrenheit");
+            celsius = tempUnit.equals("Celsius");
         }
 
-
-        String cityName = getIntent().getStringExtra("cityName");
-        String lat = getIntent().getStringExtra("lat");
-        String log = getIntent().getStringExtra("log");
-        ENDPOINT = ENDPOINT.replaceAll("_lat_", lat + "").replaceAll("_log_", log + "");
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        fetchPosts();
-
+        //initial layouts
         tv_city_name =  findViewById(R.id.city_name);
         tv_datetime = findViewById(R.id.city_current_datetime);
         tv_temp = findViewById(R.id.city_temperature);
@@ -66,8 +57,22 @@ public class WeatherActivity extends BaseActivity {
         tv_weather = findViewById(R.id.city_weather);
         tv_wind = findViewById(R.id.city_wind);
         loading = findViewById(R.id.loading);
+
+        String cityName = getIntent().getStringExtra("cityName");
         tv_city_name.setText(cityName);
+
+        //setting up api format by replacing latitude and longtitude
+        String lat = getIntent().getStringExtra("lat");
+        String log = getIntent().getStringExtra("log");
+        ENDPOINT = ENDPOINT.replaceAll("_lat_", lat + "").replaceAll("_log_", log + "");
+
+        //show loading bar
+        loading.setVisibility(View.VISIBLE);
+        //initial api request
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+        fetchData();
     }
+
     // get user id in database
     private int getUserId(){
         return SharedPrefUtils.getIntData(this, "userid");
@@ -76,10 +81,11 @@ public class WeatherActivity extends BaseActivity {
     private User getUser() {
         return AppDatabase.getAppDatabase(this).userDao().findById(getUserId());
     }
+
     /*
     WMO Weather interpretation codes (WW)
      */
-    private  void getWeatherCodeMap(){
+    private  void initWeatherCodeMap(){
         weatherMap = new HashMap<>();
         // Populate the map
         weatherMap.put(0, "Clear sky");
@@ -112,46 +118,86 @@ public class WeatherActivity extends BaseActivity {
         weatherMap.put(99, "Thunderstorm with heavy hail");
     }
 
-    private void fetchPosts() {
-        StringRequest request = new StringRequest(Request.Method.GET, ENDPOINT, onPostsLoaded, onPostsError);
+    //open-meteo - HTTP call via request
+    private void fetchData() {
+        StringRequest request = new StringRequest(Request.Method.GET, ENDPOINT, onDataLoaded, onDataError);
         requestQueue.add(request);
     }
 
-    private final Response.Listener<String> onPostsLoaded = new Response.Listener<String>() {
+    //open-meteo - API retrieval success callback
+    //This callback will show the desired city's temperature, humidity, weather and wind condition to the user
+    private final Response.Listener<String> onDataLoaded = new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
             try {
                 JSONObject obj = new JSONObject(response);
                 JSONObject current = obj.getJSONObject("current");
-                Log.i("PostActivity", obj.getJSONObject("current").getString("temperature_2m"));
+
                 tv_datetime.setText(current.getString("time").replace('T',' ')); //replaces all occurrences of 'T' to space
                 tv_weather.setText(weatherMap.get(current.getInt("weather_code")));
 
                 // show user customized temperature unit
-                if(f){
+                if(fahrenheit){
                     tv_temp.setText(Integer.toString((current.getInt("temperature_2m")* 9/5) + 32)+"°F");
-                } else if (c) {
+                } else if (celsius) {
                     tv_temp.setText(current.getString("temperature_2m")+"°C");
                 }
-                tv_wind.setText("Wind Direction: "+current.getString("wind_direction_10m")+"°"+
-                        "\n"+"Wind Speed: "+current.getString("wind_speed_10m")+"km/h");
+
+                tv_wind.setText("Direction: " + degreeToTextureDescription(Double.parseDouble(current.getString("wind_direction_10m"))) + " " + (current.getString("wind_direction_10m")) + "°"+
+                        "\n"+"Speed: "+ current.getString("wind_speed_10m")+"km/h");
+
                 tv_humidity.setText(current.getString("relative_humidity_2m")+"%");
 
             } catch (JSONException e) {
                 //some exception handler code.
                 Log.e("PostActivity", e.toString());
+                AlertHelper.displayDialog(WeatherActivity.this, e.toString());
             }
+            loading.setVisibility(View.GONE);
         }
     };
 
-    private final Response.ErrorListener onPostsError = new Response.ErrorListener() {
+    //open-meteo - API retrieval failure callback
+    //This callback will notify the user that the api is not currently available by text.
+    private final Response.ErrorListener onDataError = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
             Log.e("PostActivity here", error.toString());
             tv_datetime.setText("Data is not available right now. Please try again later!");
             tv_datetime.setTextColor(Color.parseColor("#FF0000"));
-
+            loading.setVisibility(View.GONE);
         }
     };
 
+    //convert wind direction angle to textual description
+    public String degreeToTextureDescription(double degree) {
+        //reference : https://stackoverflow.com/questions/36475255/i-have-wind-direction-data-coming-from-openweathermap-api-and-the-data-is-repre
+
+        if (degree > 337.5) {
+            return "Northerly";
+        }
+        if (degree > 292.5) {
+            return "North Westerly";
+        }
+        if (degree > 247.5) {
+            return "Westerly";
+        }
+        if (degree > 202.5) {
+            return "South Westerly";
+        }
+        if (degree > 157.5) {
+            return "Southerly";
+        }
+        if (degree > 122.5) {
+            return "South Easterly";
+        }
+        if (degree > 67.5) {
+            return "Easterly";
+        }
+        if (degree > 22.5) {
+            return "North Easterly";
+        }
+
+        return "Northerly";
+    }
 }
