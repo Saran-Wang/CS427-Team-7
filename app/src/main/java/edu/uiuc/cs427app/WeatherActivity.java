@@ -10,8 +10,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
@@ -29,8 +27,6 @@ public class WeatherActivity extends BaseActivity {
     private ViewGroup loading;
 
     private RequestQueue requestQueue;
-    private Gson gson;
-
     private Map<Integer, String> weatherMap;
 
 
