@@ -3,6 +3,7 @@ package edu.uiuc.cs427app;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 import com.android.volley.toolbox.StringRequest;
@@ -28,7 +29,8 @@ public class WeatherActivity extends BaseActivity {
 
     private TextView tv_city_name, tv_datetime, tv_temp, tv_humidity, tv_weather, tv_wind;
 
-    private ViewGroup loading;
+    private ViewGroup loading, data_panel, error_panel;
+    private Button error_back;
 
     private RequestQueue requestQueue;
     private Map<Integer, String> weatherMap;
@@ -57,6 +59,9 @@ public class WeatherActivity extends BaseActivity {
         tv_weather = findViewById(R.id.city_weather);
         tv_wind = findViewById(R.id.city_wind);
         loading = findViewById(R.id.loading);
+        data_panel = findViewById(R.id.data_panel);
+        error_panel = findViewById(R.id.error_panel);
+        error_back = findViewById(R.id.error_back);
 
         String cityName = getIntent().getStringExtra("cityName");
         tv_city_name.setText(cityName);
@@ -163,9 +168,17 @@ public class WeatherActivity extends BaseActivity {
         @Override
         public void onErrorResponse(VolleyError error) {
             Log.e("PostActivity here", error.toString());
-            tv_datetime.setText("Data is not available right now. Please try again later!");
-            tv_datetime.setTextColor(Color.parseColor("#FF0000"));
-            loading.setVisibility(View.GONE);
+            //tv_datetime.setText("Data is not available right now. Please try again later!");
+            //tv_datetime.setTextColor(Color.parseColor("#FF0000"));
+            //loading.setVisibility(View.GONE);
+            data_panel.setVisibility(View.GONE);
+            error_panel.setVisibility(View.VISIBLE);
+            error_back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    WeatherActivity.this.onBackPressed();
+                }
+            });
         }
     };
 
