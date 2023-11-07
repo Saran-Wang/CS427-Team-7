@@ -97,11 +97,17 @@ public class MainActivity extends BaseActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             private TextView city_name;
+            private Button weather_button, map_button;
             private Button btn_delete;
+
+            public Button getWeather_button() {return weather_button;}
+            public Button getMapButton() {return map_button;}
 
             public ViewHolder(View view) {
                 super(view);
                 city_name = (TextView) view.findViewById(R.id.city_name);
+                weather_button = view.findViewById(R.id.weather_button);
+                map_button = view.findViewById(R.id.map_button);
                 btn_delete = view.findViewById(R.id.delete);
             }
 
@@ -129,6 +135,18 @@ public class MainActivity extends BaseActivity {
         public void onBindViewHolder(MainActivity.CustomAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
             viewHolder.getTextView().setText(localDataSet.get(position).getCityName().toString());
             //This line of code will set the text of the TextView in the ViewHolder to the city name at the given position in the dataset
+            (viewHolder.getWeather_button()).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MainActivity.this.startActivity(new Intent(MainActivity.this, WeatherActivity.class).putExtra("city_name", localDataSet.get(position).getCityName()).putExtra("lat", localDataSet.get(position).getLat() + "").putExtra("log", localDataSet.get(position).getLog() + ""));
+                }
+            });
+            (viewHolder.getMapButton()).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MainActivity.this.startActivity(new Intent(MainActivity.this, MapWebActivity.class).putExtra("city_name", localDataSet.get(position).getCityName()).putExtra("lat", localDataSet.get(position).getLat() + "").putExtra("log", localDataSet.get(position).getLog() + ""));
+                }
+            });
             viewHolder.btn_delete.setOnClickListener(new View.OnClickListener()
                     //This line of code will create a button, when clicked the button will execute the code inside the method onClick
             {
