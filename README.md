@@ -175,20 +175,21 @@ Meeting notes: Made sure that each team member finished the task. Reviewed the m
 
 <b>Week 6</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 11/04/23 4pm - 5pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present:shiyuan8,hmyu2, bo12, nasht2,sriramr4, yinzhel3
+</br>
+Meeting notes: Updated everyone on what we've learned since the previous meeting and assigned specific tasks to each team member.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+| bo12            | Learnt to implement interactive map feature                                |Implement interactive map feature                       |
+| yinzhel3             | Learnt to implement interactive map feature                                | Implement interactive map feature                      |
+| nasht2               | Learnt to implement interactive map feature                                |Implement interactive map feature                       |
+| hmyu2               |Created the fundamental skeleton for the interactive map and weather information features                               |Implement weather information feature                       |
+| sriramr4               |  Learnt to implement weather information feature                               | Implement weather information feature                    |
+|shiyuan8                | Learnt to implement weather information feature                                | Implement weather information feature                       |
+
 </br>
 
 
