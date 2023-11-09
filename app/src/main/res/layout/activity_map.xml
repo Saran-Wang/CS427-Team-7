@@ -56,24 +56,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/background_shape"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/map_latitude"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="TextView" />
+            android:text="Latitude Value"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/map_longitude"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="TextView" />
+            android:text="Longitude Value"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
 

@@ -2,122 +2,141 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/data_panel"
-        android:orientation="vertical"
-        android:padding="10dp"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="City Name : "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="City Name : "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/city_name"
-                android:textSize="18dp"
-                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="Date and time : "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Date and time : "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/city_current_datetime"
-                android:textSize="18dp"
-                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="Temperature : "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Temperature : "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/city_temperature"
-                android:textSize="18dp"
-                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp" />
         </LinearLayout>
 
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="Humidity : "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Humidity : "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/city_humidity"
-                android:textSize="18dp"
-                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="Weather : "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Weather : "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/city_weather"
-                android:textSize="18dp"
-                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:text="Wind condition : "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Wind condition : "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/city_wind"
-                android:textSize="18dp"
-                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
@@ -129,7 +148,8 @@
         <ProgressBar
             android:layout_centerInParent="true"
             android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:indeterminateTint="#4CAF50" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -137,21 +157,22 @@
         android:id="@+id/error_panel"
         android:background="#80000000"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center">
         <LinearLayout
-            android:layout_centerInParent="true"
-            android:background="#ffffff"
+
+            android:background="#FFFFFF"
             android:orientation="vertical"
             android:layout_margin="20dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:gravity="center"
                 android:textSize="20dp"
                 android:text="Network Error"
-                android:textColor="@android:color/white"
-                android:background="@color/design_default_color_primary"
+                android:textColor="#FFFFFF"
+                android:background="#4CAF50"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
@@ -161,15 +182,13 @@
                 android:text="Data is not available right now. Please try again later!"
                 android:layout_width="wrap_content"
                 android:padding="20dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/error_back"
-                android:backgroundTint="@color/design_default_color_secondary_variant"
+                android:backgroundTint="#4CAF50"
                 android:text="Back To Home"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_margin="16dp"
                 android:layout_height="45dp"
                 android:layout_width="match_parent"/>
         </LinearLayout>
