@@ -195,12 +195,12 @@ Meeting notes: Updated everyone on what we've learned since the previous meeting
 
 <b>Week 7</b>
 </br>
-Meeting time: 11/12/23 4pm - 5pm CST
+Meeting time: 11/11/23 4pm - 5pm CST
 Members present:bo12, nasht2,sriramr4,hmyu2,kona2,shiyuan8,yinzhel3
 </br>
 Members present:shiyuan8,hmyu2, bo12, nasht2,sriramr4, yinzhel3
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Concluded milestone 4 and set learning goals for milestone 5.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
