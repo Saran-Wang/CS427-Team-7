@@ -211,6 +211,7 @@ Meeting notes: Concluded milestone 4 and set learning goals for milestone 5.
 | yinzhel3          | Completed the Interactive Map | Learn Espresso for the next Milestone         |
 |  kona2            | Completed the Interactive Map | Learn Espresso for the next Milestone         |
 | bo12              | Completed the Interactive Map | Learn Espresso for the next Milestone         |
+| pbrunet2          | Supported the Weather Feature | Learn Espresso for the next Milestone         |
 </br>
 
 
