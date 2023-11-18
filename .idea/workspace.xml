@@ -83,7 +83,7 @@
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Android Instrumented Tests.ExampleInstrumentedTest">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="CS427App.app.main" />
       <option name="DEPLOY" value="true" />
