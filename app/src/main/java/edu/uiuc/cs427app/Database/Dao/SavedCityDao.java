@@ -31,4 +31,8 @@ public interface SavedCityDao {
 
     @Delete
     void delete(SavedCity savedCity);
+
+    @Query("DELETE FROM saved_city WHERE city_id = :city_id AND user_id = :userId")
+    void delete(int userId, int city_id);
+
 }

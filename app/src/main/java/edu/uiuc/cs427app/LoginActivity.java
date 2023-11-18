@@ -16,6 +16,9 @@ import edu.uiuc.cs427app.Helper.LoginHelper;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 import edu.uiuc.cs427app.Helper.ThemeHelper;
 
+/*
+Activity for user login
+*/
 public class LoginActivity extends BaseActivity {
     EditText et_username, et_password;
     TextView tv_create;
@@ -31,13 +34,12 @@ public class LoginActivity extends BaseActivity {
         tv_create = findViewById(R.id.create);
         btn_login = findViewById(R.id.submit);
 
-
+        // Handle login button click
         /*
         The onClickListener of Button, btn_login
         will confirm the user input field (e.g. username and password)
         whether it has a validated username and/or password or not.
-
-        If validated credential was filled in, the user will be directed to the MainActivity.
+        If a validated credential is filled in, the user will be directed to the MainActivity.
         If not, a prompt message will be shown.
          */
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +53,7 @@ public class LoginActivity extends BaseActivity {
 
                     if(loginUser != null) {
                         LoginHelper.configureApplicationSetting(LoginActivity.this, loginUser);
-                        LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        LoginActivity.this.startActivity(new Intent(LoginActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                     } else {
                         //Wrong Password
                         AlertHelper.displayDialog(LoginActivity.this, "Wrong Password");
@@ -63,7 +65,7 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-
+        // Handle "Create Account" button click
         /*
         The onClickListener of textview, tv_create
         will redirect the user to the CreateAccountActivity
@@ -76,6 +78,8 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
+    
+    // Function to check if the username exists in the database
     /*
     The isUsernameExistInDB method is used to confirm
     whether the parameter exists in the database or not.
@@ -83,7 +87,8 @@ public class LoginActivity extends BaseActivity {
     public boolean isUsernameExistInDB(String username) {
         return AppDatabase.getAppDatabase(this).userDao().findByName(username) != null;
     }
-
+    
+    // Function to validate user credentials
     /*
     The validateCredential method is used to confirm
     whether the parameter username and password exists in the database or not.

@@ -21,7 +21,7 @@ The code for CS427 Android app.
 <b>Weekly Progress Reports</b>
 </br>
 </br>
-Meeting time: Every Saturday from 4pm - 5pm CST
+Meeting time: Every Saturday from 4pm - 5pm CST (If necessary, we may have an additional meeting on Wednesday from 7 pm to 8 pm CST)
 </br>
 Meeting location (zoom link): https://illinois.zoom.us/j/81328002126?pwd=d0E3aUVjMHowN2JzMEhMVGp3TTFpUT09
 </br>
@@ -154,41 +154,64 @@ Meeting notes: Made sure that each team member was on track and reminded each of
 </br>
 
 
+Meeting time: 10/28/23 4pm - 5pm CST
+</br>
+Members present:bo12, nasht2,sriramr4,hmyu2,kona2,shiyuan8, pbrunet2,yinzhel3
+</br>
+Meeting notes: Made sure that each team member finished the task. Reviewed the main objective of Milestone 4, and delegated specific learning tasks to each team member.
+</br>
+
+| NetID          | Progress from last week         | Tasks for next week   |
+| ---------------| --------------------------------| ----------------------|
+|  hmyu2              | Added documentation for `LoginAcitivity`                                | Learn to implement weather information feature                      |
+|  pbrunet2              | Added documentation for `AddCityActivity - filtering city by user input`                                |Learn to implement weather information feature                        |
+| sriramr4               |Added documentation for   `MainActivity - making a list of saved cities for each user`                                 | Learn to implement weather information feature   |
+| shiyuan8               | Added documentation for  `CreateAccountActivity`                                | Learn to implement weather information feature                       |
+| nasht2               | Shot the video for milestone 3                               | Learn to implement interactive map feature                       |
+| yinzhel3               | Added documentation for  `AddCityActivity -  add a new city`                                |  Learn to implement interactive map feature                      |
+|  kona2              | Added documentation for  `MainActivity - delete a city for particular user`                                |  Learn to implement interactive map feature                      |
+| bo12               |Added documentation for   `SettingActivity`                                 |  Learn to implement interactive map feature                      |
+</br>
+
 <b>Week 6</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 11/04/23 4pm - 5pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present:shiyuan8,hmyu2, bo12, nasht2,sriramr4, yinzhel3
+</br>
+Meeting notes: Updated everyone on what we've learned since the previous meeting and assigned specific tasks to each team member.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+| bo12            | Learnt to implement interactive map feature                                |Implement interactive map feature                       |
+| yinzhel3             | Learnt to implement interactive map feature                                | Implement interactive map feature                      |
+| nasht2               | Learnt to implement interactive map feature                                |Implement interactive map feature                       |
+| hmyu2               |Created the fundamental skeleton for the interactive map and weather information features                               |Implement weather information feature                       |
+| sriramr4               |  Learnt to implement weather information feature                               | Implement weather information feature                    |
+|shiyuan8                | Learnt to implement weather information feature                                | Implement weather information feature                       |
+
 </br>
 
 
 <b>Week 7</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 11/11/23 4pm - 5pm CST
+Members present:bo12, nasht2,sriramr4,hmyu2,kona2,shiyuan8,yinzhel3
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present:shiyuan8,hmyu2, bo12, nasht2,sriramr4, yinzhel3
+</br>
+Meeting notes: Concluded milestone 4 and set learning goals for milestone 5.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|  hmyu2            | Completed the Weather Feature | Learn Espresso for the next Milestone         |
+| sriramr4          | Completed the Weather Feature | Learn Espresso for the next Milestone         |
+| shiyuan8          | Completed the Weather Feature | Learn Espresso for the next Milestone         |
+| nasht2            | Completed the Interactive Map | Learn Espresso for the next Milestone         |
+| yinzhel3          | Completed the Interactive Map | Learn Espresso for the next Milestone         |
+|  kona2            | Completed the Interactive Map | Learn Espresso for the next Milestone         |
+| bo12              | Completed the Interactive Map | Learn Espresso for the next Milestone         |
+| pbrunet2          | Supported the Weather Feature | Learn Espresso for the next Milestone         |
 </br>
 
 
