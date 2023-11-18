@@ -5,4 +5,6 @@
         <item>Dark</item>
     </string-array>
 
+    <string name="MAP_API_KEY">AIzaSyBw92ioub40imHSh6dvm4fQ-tT_jESiFG0</string>
+
 </resources>

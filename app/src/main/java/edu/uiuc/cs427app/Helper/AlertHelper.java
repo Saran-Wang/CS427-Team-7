@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import edu.uiuc.cs427app.R;
 
 public class AlertHelper {
-
+    //Show prompt message according to the inputed parameter
     public static void displayDialog(Context context, String errorMessage) {
         new AlertDialog.Builder(context)
                 .setTitle(context.getString(R.string.app_name))
