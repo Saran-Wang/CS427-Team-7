@@ -30,11 +30,13 @@ import edu.uiuc.cs427app.Database.Entity.User;
 @Database(entities = {User.class, City.class, SavedCity.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase sInstance;
+    private static boolean loadOnce = true;
 
     public abstract UserDao userDao();
     public abstract CityDao cityDao();
     public abstract SavedCityDao savedCityDao();
 
+    //initialize database instance if needed and preload a city list from csv
     public static AppDatabase getAppDatabase(Context context) {
         if (sInstance == null) {
             sInstance = Room.databaseBuilder(context, AppDatabase.class, "Weather.db")
@@ -43,34 +45,37 @@ public abstract class AppDatabase extends RoomDatabase {
                     .build();
         }
 
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                int size = sInstance.cityDao().getAll().size();
-                if(size == 0){
-                    try {
-                        AssetManager manager = ((Activity) context).getAssets();
-                        //https://simplemaps.com/data/world-cities
-                        InputStream in = manager.open("worldcities.csv");
-                        
-                        ArrayList<City> cooked = parse(in);
-                        for (City c : cooked) {
-                            sInstance.cityDao().insertAll(c);
-                        }
+        if(loadOnce) {
+            loadOnce = false;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    int size = sInstance.cityDao().getAll().size();
+                    if (size == 0) {
+                        try {
+                            AssetManager manager = ((Activity) context).getAssets();
+                            //https://simplemaps.com/data/world-cities
+                            InputStream in = manager.open("worldcities.csv");
+
+                            ArrayList<City> cooked = parse(in);
+                            for (City c : cooked) {
+                                sInstance.cityDao().insertAll(c);
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
-        });
-
+            }).start();
+        }
 
 
         return sInstance;
     }
 
-
+    //parse input stream of csv data into arraylist of city
     private static ArrayList<City> parse(InputStream in) throws IOException {
         ArrayList<City> results = new ArrayList<City>();
 

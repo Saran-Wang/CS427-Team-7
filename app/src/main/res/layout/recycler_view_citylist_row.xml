@@ -13,18 +13,26 @@
             android:text="Los Angeles" />
 
         <Button
-            android:id="@+id/city_button"
+            android:id="@+id/weather_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="Weather" />
+
+        <Button
+            android:id="@+id/map_button"
+            android:layout_marginLeft="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="Detail" />
+            android:text="Map" />
 
         <Button
             android:backgroundTint="@android:color/holo_red_dark"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.3"
             android:text="x" />
 </LinearLayout>

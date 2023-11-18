@@ -93,7 +93,7 @@
             android:textColor="#84FFFF" />
 
         <Switch
-            android:id="@+id/Mode"
+            android:id="@+id/setting_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" Dark" />
