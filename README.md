@@ -143,7 +143,7 @@ Meeting notes: Made sure that each team member was on track and reminded each of
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|hmyu2                |  Completed `LoginAcitivity`; Provided overall guidelines to each team member for developing all features.                               |  Add documentation for `LoginAcitivity`     |
+|hmyu2                |  Completed `LoginAcitivity`; Provided overall guidelines to each team member for developing all features.                               |  Add documentation for `LoginActivity`     |
 | shiyuan8               |  Completed `CreateAccountActivity`                                |Add documentation for  `CreateAccountActivity`  |                      
 |bo12                |  Completed `SettingActivity`                               |Add documentation for   `SettingActivity`                   |
 | pbrunet2               |  Complete `AddCityActivity - filtering city by user input`                               |Add documentation for `AddCityActivity - filtering city by user input`                       |
@@ -217,20 +217,20 @@ Meeting notes: Concluded milestone 4 and set learning goals for milestone 5.
 
 <b>Week 8</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: shiyuan8,hmyu2, kona2, bo12, nasht2, pbrunet2, sriramr4, yinzhel3
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Delegated specific test tasks to each team member.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+| hmyu2               |  Set up Espresso in Android Studio                               | Write tests for `Login Activity` and 'Weather Information Feature' and 'Weather Information Feature'                   |
+| yinzhel3               |     Set up Espresso in Android Studio                            | Write tests for  `AddCityActivity -  add a new city` and `Interactive Map Feature`             |
+| kona2               |  Set up Espresso in Android Studio                               | Write tests for  `MainActivity - delete a city for particular user` and `Interactive Map Feature`                      |
+| sriramr4               |  Set up Espresso in Android Studio                               | Write tests for `MainActivity - making a list of saved cities for each user` and 'Weather Information Feature'                    |
+| bo12              |   Set up Espresso in Android Studio                              |  Write tests for `SettingActivity` and `Interactive Map Feature`                     |
+|  pbrunet2              |  Set up Espresso in Android Studio                               |   Write tests for `AddCityActivity - filtering city by user input` and 'Weather Information Feature'                   |
+| nasht2               |   Set up Espresso in Android Studio                              |    Write tests for 'Weather Information Feature' and `Interactive Map Feature`                     |
+|  shiyuan8              |    Set up Espresso in Android Studio                             |   Write tests for `CreateAccountActivity` and 'Weather Information Feature'                   |
 </br>
 
 
