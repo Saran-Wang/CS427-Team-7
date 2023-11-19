@@ -223,7 +223,7 @@ Meeting notes: Delegated specific test tasks to each team member.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-| hmyu2               |  Set up Espresso in Android Studio                               | Write tests for `Login Activity` and 'Weather Information Feature' and `Weather Information Feature`                   |
+| hmyu2               |  Set up Espresso in Android Studio                               | Write tests for `Login Activity` and `Weather Information Feature`                   |
 | yinzhel3               |     Set up Espresso in Android Studio                            | Write tests for  `AddCityActivity -  add a new city` and `Interactive Map Feature`             |
 | kona2               |  Set up Espresso in Android Studio                               | Write tests for  `MainActivity - delete a city for particular user` and `Interactive Map Feature`                      |
 | sriramr4               |  Set up Espresso in Android Studio                               | Write tests for `MainActivity - making a list of saved cities for each user` and `Weather Information Feature`                    |
