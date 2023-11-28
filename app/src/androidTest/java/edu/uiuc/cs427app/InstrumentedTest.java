@@ -277,6 +277,13 @@ public class InstrumentedTest {
 
         } catch (Exception e) {
         }
+
+
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private String datetime, weather, wind, humidity, temp;
