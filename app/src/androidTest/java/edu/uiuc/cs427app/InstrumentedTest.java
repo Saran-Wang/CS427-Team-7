@@ -170,7 +170,7 @@ public class InstrumentedTest {
     private String ENDPOINT = "https://api.open-meteo.com/v1/forecast?latitude=_lat_&longitude=_log_&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&timezone=auto";
 
     @Test
-    public void E_test_weather_feature() {
+    public void F_test_weather_feature() {
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
 
@@ -213,9 +213,15 @@ public class InstrumentedTest {
 
         } catch (Exception e) {
         }
+
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @Test
-    public void E1_test_weather_feature() {
+    public void F1_test_weather_feature() {
 
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
@@ -323,7 +329,7 @@ public class InstrumentedTest {
     };
 
     @Test
-    public void F_test_location_feature() {
+    public void G_test_location_feature() {
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
 
@@ -342,7 +348,7 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void F1_test_location_feature() {
+    public void G1_test_location_feature() {
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
 
@@ -359,6 +365,21 @@ public class InstrumentedTest {
         } catch (Exception e) {
         }
     }
+
+
+    @Test
+    public void E_user_logout() {
+        onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
+
+        onView(withId(R.id.submit)).perform(click());
+        onView(withId(R.id.logout)).perform(click());
+
+        onView(allOf(instanceOf(TextView.class),
+                withParent(withResourceName("action_bar"))))
+                .check(matches(withText("Team 7")));
+    }
+
     public ViewAction clickOnViewChild(final int viewId) {
         return new ViewAction() {
             @Override
