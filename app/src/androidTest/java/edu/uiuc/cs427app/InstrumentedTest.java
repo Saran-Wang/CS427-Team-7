@@ -348,6 +348,7 @@ public class InstrumentedTest {
         City city = appDatabase.cityDao().findByName("Tokyo");
 
         try {
+            onView(withId(R.id.map_city)).check(matches((withText(containsString("" + city.getCityName())))));
             onView(withId(R.id.map_latitude)).check(matches((withText(containsString("" + city.getLat())))));
             onView(withId(R.id.map_longitude)).check(matches((withText(containsString("" + city.getLog())))));
         } catch (Exception e) {
