@@ -31,6 +31,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.*;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
+import edu.uiuc.cs427app.Database.Entity.City;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -90,4 +91,25 @@ public class ExampleInstrumentedTest {
                 .check(matches(withText("Team 7-hmyu2")));
     }
 
+    @Test
+    public void C_add_City_Activity() {
+        // Log in first
+        onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
+        onView(withId(R.id.submit)).perform(click());
+
+        // ****Add city****
+        // perform click add location button to land on add city UI
+        onView(withId(R.id.buttonAddLocation)).perform(click());
+
+        // try adding Detroit
+        onView(withId(R.id.user_input)).perform(typeText("Detroit"), closeSoftKeyboard());
+        onView(withId(R.id.add)).perform(click());
+
+        // Assert check if "Detroit" is in the city list.
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
+        City city = appDatabase.cityDao().findByName("Detroit");
+        assertThat (city, is(not(nullValue())));
+    }
 }
