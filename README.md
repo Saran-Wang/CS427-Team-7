@@ -217,6 +217,8 @@ Meeting notes: Concluded milestone 4 and set learning goals for milestone 5.
 
 <b>Week 8</b>
 </br>
+Meeting time: 11/18/23 7pm - 8pm CST
+</br>
 Members present: shiyuan8,hmyu2, kona2, bo12, nasht2, pbrunet2, sriramr4, yinzhel3
 </br>
 Meeting notes: Delegated specific test tasks to each team member.
@@ -236,39 +238,43 @@ Meeting notes: Delegated specific test tasks to each team member.
 
 <b>Week 9</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 11/29/23 4pm - 5pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present: hmyu2, kona2, bo12, nasht2, pbrunet2, sriramr4, yinzhel3
+</br>
+Meeting notes: Checked progress of milestone 5.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+| hmyu2               |  Worked on tests for `Login Activity` and `Weather Information Feature`                               | Continue working on tests for `Login Activity` and `Weather Information Feature`                   |
+| yinzhel3               | Worked   on tests for  `AddCityActivity -  add a new city` and `Interactive Map Feature`                           | Continue working on tests for  `AddCityActivity -  add a new city` and `Interactive Map Feature`             |
+| kona2               | Worked tests for  `MainActivity - delete a city for particular user` and `Interactive Map Feature`                              | Continue working on tests for  `MainActivity - delete a city for particular user` and `Interactive Map Feature`                      |
+| sriramr4               | Worked on tests for `MainActivity - making a list of saved cities for each user` and `Weather Information Feature`                              | Continue working on tests for `MainActivity - making a list of saved cities for each user` and `Weather Information Feature`                    |
+| bo12              | Worked  on tests for `SettingActivity` and `Interactive Map Feature`                              |  Continue working on tests for `SettingActivity` and `Interactive Map Feature`                     |
+|  pbrunet2              | Worked on tests for `AddCityActivity - filtering city by user input` and `Weather Information Feature`                              |   Continue working on tests for `AddCityActivity - filtering city by user input` and `Weather Information Feature`                   |
+| nasht2               | Worked  on tests for `Weather Information Feature` and `Interactive Map Feature`                              |    Continue working on tests for `Weather Information Feature` and `Interactive Map Feature`                     |
+|  shiyuan8              | Worked  on tests for `CreateAccountActivity` and `Weather Information Feature`                            |   Continue working on tests for `CreateAccountActivity` and `Weather Information Feature`                  |
 </br>
 
 
 <b>Week 10</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Meeting time: 12/03/23 4pm - 5pm CST
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Members present: shiyuan8, hmyu2, kona2, bo12, nasht2, pbrunet2, sriramr4, yinzhel3
+</br>
+Meeting notes: Concluded milestone 5.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|  hmyu2              |   Concluded milestone 5                              |   Take a rest                    |
+|  shiyuan8              | Concluded milestone 5                                |   Take a rest                     |
+|  bo12              |  Concluded milestone 5                               |    Take a rest                    |
+|  kona2              | Concluded milestone 5                                |   Take a rest                     |
+|  sriramr4              |   Concluded milestone 5                              |   Take a rest                     |
+|  yinzhel3              |  Concluded milestone 5                               | Take a rest                       |
+| pbrunet2               |  Concluded milestone 5                               |  Take a rest                      |
+|   nasht2             |   Concluded milestone 5                              |Take a rest |
 </br>
 
 
