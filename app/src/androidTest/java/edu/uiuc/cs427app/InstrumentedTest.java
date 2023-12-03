@@ -159,7 +159,7 @@ public class InstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
 
-        // Retrieve the user and city from the database
+        // Retrieve the user, city from the database
         User user = appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!");
         City city = appDatabase.cityDao().findByName("Chicago");
 
