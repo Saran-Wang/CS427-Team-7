@@ -54,6 +54,7 @@ import static org.junit.Assert.*;
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.City;
 import edu.uiuc.cs427app.Database.Entity.User;
+import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
 import android.view.View;
 import androidx.test.espresso.UiController;
@@ -264,6 +265,8 @@ public class InstrumentedTest {
         try {
             Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
             AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
+            user =  AppDatabase.getAppDatabase(appContext).userDao().findById(SharedPrefUtils.getIntData(appContext, "userid"));
+
             City city = appDatabase.cityDao().findByName("Tokyo");
             String lat = city.getLat();
             String log = city.getLog();
@@ -278,7 +281,7 @@ public class InstrumentedTest {
             requestQueue.add(request);
 
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -329,6 +332,8 @@ public class InstrumentedTest {
             Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
             AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
             City city = appDatabase.cityDao().findByName("Hong Kong");
+            user =  AppDatabase.getAppDatabase(appContext).userDao().findById(SharedPrefUtils.getIntData(appContext, "userid"));
+
             String lat = city.getLat();
             String log = city.getLog();
 
@@ -342,7 +347,7 @@ public class InstrumentedTest {
             requestQueue.add(request);
 
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -364,6 +369,7 @@ public class InstrumentedTest {
     }
 
     private String datetime, weather, wind, humidity, temp;
+    private User user;
 
     // Open-meteo - API retrieval success callback
     // This callback updates the UI with weather data
@@ -386,7 +392,14 @@ public class InstrumentedTest {
                 weather = (weatherMap.get(current.getInt("weather_code")));
 
                 // Show user-customized temperature unit
-                temp = (Integer.toString((current.getInt("temperature_2m") * 9/5) + 32) + "°F");
+                if (user != null) {
+                    String tempUnit = user.getTemperature_format();
+                    if(tempUnit.equals("fahrenheit")){
+                        temp = (Integer.toString((current.getInt("temperature_2m") * 9/5) + 32) + "°F");
+                    } else {
+                        temp = (current.getString("temperature_2m") + "°C");
+                    }
+                }
 
                 // Set wind information in the wind TextView
                 wind = ("Direction: " + degreeToTextureDescription(Double.parseDouble(current.getString("wind_direction_10m"))) +
