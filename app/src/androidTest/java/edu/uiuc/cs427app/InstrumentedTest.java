@@ -5,15 +5,22 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import androidx.test.espresso.matcher.ViewMatchers;
+import static androidx.test.espresso.matcher.ViewMatchers.isChecked;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withResourceName;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.action.ViewActions;
 
+
+import android.content.Intent;
 import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Checkable;
 
 
 import androidx.test.espresso.Espresso;
@@ -24,6 +31,8 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,6 +42,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 
+import static org.hamcrest.CoreMatchers.isA;
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -109,6 +119,73 @@ public class InstrumentedTest {
         onView(allOf(instanceOf(TextView.class),
                 withParent(withResourceName("action_bar"))))
                 .check(matches(withText("Team 7-hmyu2")));
+    }
+    @Test
+    public void B_test_setting_DarkModeSwitch() {
+        onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
+        onView(withId(R.id.submit)).perform(click());
+        // Navigate to the setting page
+        onView(withId(R.id.setting)).perform(click());
+
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
+        String prevTheme = appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!").getTheme();
+        // Find the Switch by its ID
+        onView(withId(R.id.setting_mode))
+                // Perform a check on the Switch
+                .perform(setChecked(true));
+        onView(withId(R.id.edit))
+                // Perform a click on DONE
+                .perform(click());
+        // Check whether the new theme (after switch) is different from the previous theme stored in database
+        assertThat (appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!").getTheme(), is(prevTheme.equals("Dark")? "Light": "Dark"));
+
+
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void B_test_setting_TemperatureUnit() {
+        onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
+        onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
+        onView(withId(R.id.submit)).perform(click());
+        // Navigate to the setting page
+        onView(withId(R.id.setting)).perform(click());
+
+
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
+        // Find the RadioButtons by their IDs
+        onView(withId(R.id.fahrenheit))
+                // Perform a click on the first RadioButton
+                .perform(click());
+        onView(withId(R.id.edit))
+                // Perform a click on DONE
+                .perform(click());
+        // Navigate to the setting page
+        onView(withId(R.id.setting)).perform(click());
+        assertThat (appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!").getTemperature_format(), is( "Fahrenheit"));
+
+        // Similarly, you can perform actions on other RadioButtons in the RadioGroup
+        onView(withId(R.id.celsius))
+                .perform(click());
+        onView(withId(R.id.edit))
+                // Perform a click on DONE
+                .perform(click());
+        // Check whether the new temperature unit (after switch) is different from the previous one stored in database
+        assertThat (appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!").getTemperature_format(), is("Celsius"));
+
+
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -208,7 +285,7 @@ public class InstrumentedTest {
             requestQueue.add(request);
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -272,7 +349,7 @@ public class InstrumentedTest {
             requestQueue.add(request);
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(5000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -413,6 +490,38 @@ public class InstrumentedTest {
             }
         };
     }
+
+    public static ViewAction setChecked(final boolean checked) {
+        return new ViewAction() {
+            @Override
+            public BaseMatcher<View> getConstraints() {
+                return new BaseMatcher<View>() {
+                    @Override
+                    public boolean matches(Object item) {
+                        return isA(Checkable.class).matches(item);
+                    }
+
+                    @Override
+                    public void describeMismatch(Object item, Description mismatchDescription) {}
+
+                    @Override
+                    public void describeTo(Description description) {}
+                };
+            }
+
+            @Override
+            public String getDescription() {
+                return null;
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                Checkable checkableView = (Checkable) view;
+                checkableView.setChecked(checked);
+            }
+        };
+    }
+
     public String degreeToTextureDescription(double degree) {
         // Reference: https://stackoverflow.com/questions/36475255/i-have-wind-direction-data-coming-from-openweathermap-api-and-the-data-is-repre
         if (degree > 337.5 || degree <= 22.5) {
