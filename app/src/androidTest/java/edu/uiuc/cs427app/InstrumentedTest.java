@@ -146,27 +146,34 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void D_removing_an_existing_city(){
+    public void removeExistingCity() {
+        // Login
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
-
         onView(withId(R.id.submit)).perform(click());
 
+        // Click on the delete button of the first city in the list
         onView(withId(R.id.city_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, clickOnViewChild(R.id.delete)));
 
+        // Access the app database
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
+
+        // Retrieve the user and city from the database
         User user = appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!");
         City city = appDatabase.cityDao().findByName("Chicago");
 
+        // Wait for some time (consider using IdlingResources for a more reliable wait strategy)
         try {
             Thread.sleep(3000);
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        assertThat (appDatabase.savedCityDao().isCityExistByUserId(user.getId(), city.getId()), is((nullValue())));
+        // Verify that the city is no longer associated with the user
+        assertThat(appDatabase.savedCityDao().isCityExistByUserId(user.getId(), city.getId()), is(nullValue()));
     }
+
     private String ENDPOINT = "https://api.open-meteo.com/v1/forecast?latitude=_lat_&longitude=_log_&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&timezone=auto";
 
     @Test
