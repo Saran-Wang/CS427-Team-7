@@ -261,7 +261,7 @@ Meeting notes: Checked progress of milestone 5.
 </br>
 Meeting time: 12/03/23 4pm - 5pm CST
 </br>
-Members present: shiyuan8, hmyu2, kona2, bo12, nasht2, pbrunet2, sriramr4, yinzhel3
+Members present: shiyuan8, hmyu2, kona2, bo12, yinzhel3, nasht2, pbrunet2
 </br>
 Meeting notes: Concluded milestone 5.
 </br>
