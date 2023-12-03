@@ -223,7 +223,7 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void removeExistingCity() {
+    public void D_removing_an_existing_city() {
         // Login
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
