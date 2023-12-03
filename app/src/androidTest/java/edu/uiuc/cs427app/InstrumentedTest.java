@@ -139,12 +139,13 @@ public class InstrumentedTest {
         onView(withId(R.id.edit))
                 // Perform a click on DONE
                 .perform(click());
+
         // Check whether the new theme (after switch) is different from the previous theme stored in database
         assertThat (appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!").getTheme(), is(prevTheme.equals("Dark")? "Light": "Dark"));
 
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -362,7 +363,7 @@ public class InstrumentedTest {
 
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (Exception e) {
             e.printStackTrace();
         }
