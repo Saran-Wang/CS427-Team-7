@@ -227,27 +227,34 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void D_removing_an_existing_city(){
+    public void D_removing_an_existing_city() {
+        // Login
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
-
         onView(withId(R.id.submit)).perform(click());
 
+        // Click on the delete button of the first city in the list
         onView(withId(R.id.city_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, clickOnViewChild(R.id.delete)));
 
+        // Access the app database
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
+
+        // Retrieve the user, city from the database
         User user = appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!");
         City city = appDatabase.cityDao().findByName("Chicago");
 
+        // Wait for some time (consider using IdlingResources for a more reliable wait strategy)
         try {
             Thread.sleep(3000);
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        assertThat (appDatabase.savedCityDao().isCityExistByUserId(user.getId(), city.getId()), is((nullValue())));
+        // Verify that the city is no longer associated with the user
+        assertThat(appDatabase.savedCityDao().isCityExistByUserId(user.getId(), city.getId()), is(nullValue()));
     }
+
     private String ENDPOINT = "https://api.open-meteo.com/v1/forecast?latitude=_lat_&longitude=_log_&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&timezone=auto";
 
     @Test
@@ -545,33 +552,23 @@ public class InstrumentedTest {
 
     public String degreeToTextureDescription(double degree) {
         // Reference: https://stackoverflow.com/questions/36475255/i-have-wind-direction-data-coming-from-openweathermap-api-and-the-data-is-repre
-
-        if (degree > 337.5) {
+        if (degree > 337.5 || degree <= 22.5) {
             return "Northerly";
-        }
-        if (degree > 292.5) {
+        } else if (degree > 292.5) {
             return "North Westerly";
-        }
-        if (degree > 247.5) {
+        } else if (degree > 247.5) {
             return "Westerly";
-        }
-        if (degree > 202.5) {
+        } else if (degree > 202.5) {
             return "South Westerly";
-        }
-        if (degree > 157.5) {
+        } else if (degree > 157.5) {
             return "Southerly";
-        }
-        if (degree > 122.5) {
+        } else if (degree > 122.5) {
             return "South Easterly";
-        }
-        if (degree > 67.5) {
+        } else if (degree > 67.5) {
             return "Easterly";
-        }
-        if (degree > 22.5) {
+        } else {
             return "North Easterly";
         }
-
-        return "Northerly";
     }
 
     private Map<Integer, String> weatherMap;
