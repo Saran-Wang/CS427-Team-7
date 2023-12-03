@@ -103,7 +103,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 .position(sydney)
                 .title(cityName)
                 .snippet(String.format("%s with latitude %s and longitude %s", cityName, c.getLat(), c.getLog())));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15.0f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 11.0f));
     }
 
 }

@@ -192,13 +192,14 @@ public class InstrumentedTest {
 
     @Test
     public void C_adding_a_city() {
+        // Log in first
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
-
         onView(withId(R.id.submit)).perform(click());
 
+        // ****Add city****
+        // perform click add location button to land on add city UI
         onView(withId(R.id.buttonAddLocation)).perform(click());
-
         onView(withId(R.id.user_input)).perform(typeText("Chicago"), closeSoftKeyboard());
         onView(withId(R.id.add)).perform(click());
 
@@ -215,9 +216,10 @@ public class InstrumentedTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        // Assert check if "Chicago" is in the city list.
         assertThat (appDatabase.savedCityDao().isCityExistByUserId(user.getId(), city.getId()), is(not(nullValue())));
 
+        // Assert check if "Chicago" is in on the recycler view.
         onView(ViewMatchers.withId(R.id.city_list))
                 .perform((ViewAction) RecyclerViewActions.scrollTo(
                         hasDescendant(withText("Chicago"))
@@ -444,6 +446,12 @@ public class InstrumentedTest {
             onView(withId(R.id.map_longitude)).check(matches((withText(containsString("" + city.getLog())))));
         } catch (Exception e) {
         }
+
+        try {
+            Thread.sleep(4000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -462,6 +470,12 @@ public class InstrumentedTest {
             onView(withId(R.id.map_latitude)).check(matches((withText(containsString("" + city.getLat())))));
             onView(withId(R.id.map_longitude)).check(matches((withText(containsString("" + city.getLog())))));
         } catch (Exception e) {
+        }
+
+        try {
+            Thread.sleep(4000);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
