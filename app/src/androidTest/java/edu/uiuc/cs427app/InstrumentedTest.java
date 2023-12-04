@@ -53,6 +53,7 @@ import static org.junit.Assert.*;
 
 import edu.uiuc.cs427app.Database.AppDatabase;
 import edu.uiuc.cs427app.Database.Entity.City;
+import edu.uiuc.cs427app.Database.Entity.SavedCity;
 import edu.uiuc.cs427app.Database.Entity.User;
 import edu.uiuc.cs427app.Helper.SharedPrefUtils;
 
@@ -126,6 +127,13 @@ public class InstrumentedTest {
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
         onView(withId(R.id.submit)).perform(click());
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         // Navigate to the setting page
         onView(withId(R.id.setting)).perform(click());
 
@@ -156,6 +164,12 @@ public class InstrumentedTest {
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
         onView(withId(R.id.submit)).perform(click());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         // Navigate to the setting page
         onView(withId(R.id.setting)).perform(click());
 
@@ -212,7 +226,7 @@ public class InstrumentedTest {
         City city = appDatabase.cityDao().findByName("Chicago");
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -224,6 +238,12 @@ public class InstrumentedTest {
                 .perform((ViewAction) RecyclerViewActions.scrollTo(
                         hasDescendant(withText("Chicago"))
                 ));
+
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -232,10 +252,18 @@ public class InstrumentedTest {
         onView(withId(R.id.username)).perform(typeText("hmyu2"), closeSoftKeyboard());
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
         onView(withId(R.id.submit)).perform(click());
-
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // Click on the delete button of the first city in the list
         onView(withId(R.id.city_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, clickOnViewChild(R.id.delete)));
-
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         // Access the app database
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         AppDatabase appDatabase = AppDatabase.getAppDatabase(appContext);
@@ -243,6 +271,8 @@ public class InstrumentedTest {
         // Retrieve the user, city from the database
         User user = appDatabase.userDao().findByNameAndPassword("hmyu2", "847B2m8c!");
         City city = appDatabase.cityDao().findByName("Chicago");
+
+        SavedCity savedCity = appDatabase.savedCityDao().isCityExistByUserId(user.getId(), city.getId());
 
         // Wait for some time (consider using IdlingResources for a more reliable wait strategy)
         try {
@@ -252,7 +282,7 @@ public class InstrumentedTest {
         }
 
         // Verify that the city is no longer associated with the user
-        assertThat(appDatabase.savedCityDao().isCityExistByUserId(user.getId(), city.getId()), is(nullValue()));
+        assertThat(savedCity, is(nullValue()));
     }
 
     private String ENDPOINT = "https://api.open-meteo.com/v1/forecast?latitude=_lat_&longitude=_log_&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&timezone=auto";
@@ -263,6 +293,12 @@ public class InstrumentedTest {
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
 
         onView(withId(R.id.submit)).perform(click());
+
+        try {
+            Thread.sleep(500);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         onView(withId(R.id.city_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, clickOnViewChild(R.id.weather_button)));
 
@@ -493,6 +529,12 @@ public class InstrumentedTest {
         onView(withId(R.id.password)).perform(typeText("847B2m8c!"), closeSoftKeyboard());
 
         onView(withId(R.id.submit)).perform(click());
+
+        try {
+            Thread.sleep(500);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.logout)).perform(click());
 
         try {
