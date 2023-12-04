@@ -495,6 +495,12 @@ public class InstrumentedTest {
         onView(withId(R.id.submit)).perform(click());
         onView(withId(R.id.logout)).perform(click());
 
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         onView(allOf(instanceOf(TextView.class),
                 withParent(withResourceName("action_bar"))))
                 .check(matches(withText("Team 7")));
